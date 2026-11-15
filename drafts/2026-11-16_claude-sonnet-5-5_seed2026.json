@@ -1,0 +1,158 @@
+{
+  "start": "2026-11-16",
+  "seed": 2026,
+  "model": "claude-sonnet-5-5",
+  "puzzles": [
+    {
+      "puzzle_date": "2026-11-16",
+      "name": "Rocky Mountain National Park",
+      "short_name": "Rocky Mountain",
+      "difficulty": 4,
+      "answer_format": "type_in",
+      "nps_code": "romo",
+      "clue_1": "Sweet-smelling ponderosa pines give way to open meadows, and the thin air makes every uphill step feel harder than it looks.",
+      "clue_2": "A 9.4-mile unpaved road, built between 1913 and 1920, climbs to a pass where a visitor center sits above 11,000 feet.",
+      "clue_3": "Each fall, bull elk gather herds in its meadows beneath peaks over 14,000 feet, and Trail Ridge Road crosses the high country above.",
+      "wrong_answers": [],
+      "accepted_answers": [
+        "rocky mountain",
+        "rocky mountain national park",
+        "rocky",
+        "rmnp",
+        "rocky mountains"
+      ],
+      "reasoning": "Clue 1 uses the pine scent and thin air, with no signature feature. Clue 2 uses the historic unpaved road and its high visitor center. The famous elk rut, 14,000-foot peaks, and high road are saved for clue 3.",
+      "calibration_note": "Fame 4 with many banned landmarks. Saved for future use: Lava Cliffs volcanic rock, Holzwarth historic site, Alluvial Fan cascade, winter snowshoeing and skiing."
+    },
+    {
+      "puzzle_date": "2026-11-17",
+      "name": "Lake Clark National Park & Preserve",
+      "short_name": "Lake Clark",
+      "difficulty": 1,
+      "answer_format": "choice_easy",
+      "nps_code": "lacl",
+      "clue_1": "Shimmering turquoise water mirrors craggy mountains, and small planes land on it fitted with floats or skis, depending on the ice.",
+      "clue_2": "Its clean, cold waters protect some of the world's most productive spawning and rearing habitat for sockeye salmon.",
+      "clue_3": "Active, glacier-covered volcanoes show off both fire and ice here, and visitors fly in to watch bears along the coast.",
+      "wrong_answers": [
+        "Gates Of The Arctic National Park & Preserve",
+        "Saguaro National Park",
+        "Hot Springs National Park"
+      ],
+      "accepted_answers": [
+        "lake clark",
+        "lake clark national park & preserve",
+        "lake clark national park and preserve",
+        "lake clark national park"
+      ],
+      "reasoning": "The clues build from the plane-access scene to the salmon watershed to the volcanoes and coastal bears. Gates of the Arctic is the similar remote Alaskan park, but it has no volcanoes. Saguaro and Hot Springs are clearly different.",
+      "calibration_note": "I avoided the word 'lake' because it is part of the name. Dena'ina cultural sites such as the fish cache and Kijik were left out pending Indigenous content review. Saved for later: Kontrashibuna camping and the Denison sawmill."
+    },
+    {
+      "puzzle_date": "2026-11-18",
+      "name": "Glacier Bay National Park & Preserve",
+      "short_name": "Glacier Bay",
+      "difficulty": 2,
+      "answer_format": "choice_confusable",
+      "nps_code": "glba",
+      "clue_1": "Rain is the norm in this dripping rainforest of spruce and hemlock, where campers fall asleep to the sound of whales nearby.",
+      "clue_2": "Tree stumps preserved after glacier ice overran them here have been dated to more than 10,000 years old.",
+      "clue_3": "Massive glaciers carved nearly this whole landscape; humpback whales migrate in each summer, and harbor seals pup on ice chunks the glaciers drop.",
+      "wrong_answers": [
+        "Kenai Fjords National Park",
+        "Wrangell - St Elias National Park & Preserve",
+        "Olympic National Park"
+      ],
+      "accepted_answers": [
+        "glacier bay",
+        "glacier bay national park",
+        "glacier bay national park & preserve",
+        "glacier bay national park and preserve"
+      ],
+      "reasoning": "Clue 1 gives a rainforest and whale-sound scene that fits several coastal parks. Clue 2 uses the ancient interstadial stumps. Clue 3 gives the glacier-carved landscape, whales, and seals. The wrong answers are other glacier or coastal-rainforest parks.",
+      "calibration_note": "Kenai Fjords is the closest lookalike, and the ancient stumps in clue 2 are what separate the two. I avoided 'bay' and the Huna and Lingít cultural content. Saved for later: South Marble Island seabirds, mountain goats at Gloomy Knob."
+    },
+    {
+      "puzzle_date": "2026-11-19",
+      "name": "Kobuk Valley National Park",
+      "short_name": "Kobuk Valley",
+      "difficulty": 1,
+      "answer_format": "choice_easy",
+      "nps_code": "kova",
+      "clue_1": "Loose sand shifts under your boots, and snow, rain, or freezing temperatures can arrive in any month of the year.",
+      "clue_2": "Thousands of caribou migrate through this Arctic park, their tracks crisscrossing sculpted sand dunes.",
+      "clue_3": "Here sits the northernmost sand dune complex in North America, home to an abundance of Arctic wildlife.",
+      "wrong_answers": [
+        "Great Sand Dunes National Park & Preserve",
+        "Biscayne National Park",
+        "Mammoth Cave National Park"
+      ],
+      "accepted_answers": [
+        "kobuk valley",
+        "kobuk valley national park",
+        "kobuk"
+      ],
+      "reasoning": "The sand and weather scene in clue 1 stays general. Clue 2 adds the caribou crossing the dunes. Clue 3 gives the northernmost dunes, which teaches a first-time player why this park is unusual. Great Sand Dunes is the similar park, and the Arctic caribou rule it out.",
+      "calibration_note": "Onion Portage's 9,000-year history was skipped because it involves Indigenous heritage and awaits review. I avoided the word 'valley'. Saved for later: floating the river and the medicinal plants."
+    },
+    {
+      "puzzle_date": "2026-11-20",
+      "name": "Big Bend National Park",
+      "short_name": "Big Bend",
+      "difficulty": 3,
+      "answer_format": "first_letter_count",
+      "nps_code": "bibe",
+      "clue_1": "Sun beats on a quiet desert floor, often above 100 degrees by late morning, then night falls under a sky dark as coal.",
+      "clue_2": "Nine species of prickly pear grow here, alongside giant dagger yucca that bloom between April and June and tall, spiny ocotillo.",
+      "clue_3": "The Rio Grande, the border with Mexico, carves three major canyons here, while a mountain range rises from the desert floor.",
+      "wrong_answers": [],
+      "accepted_answers": [
+        "big bend",
+        "big bend national park",
+        "the big bend"
+      ],
+      "reasoning": "Clue 1 is about heat and darkness. Clue 2 is about the desert plants. Clue 3 gives the river, canyons, and border for a player who has heard of the park, and avoids the word 'bend'.",
+      "calibration_note": "Many banned words cover the river, canyons, and mountains, so the desert plants were the best clue 2 material. Saved for later: the Mexican village border crossing, camel corps story, Castolon, Burro Spring."
+    },
+    {
+      "puzzle_date": "2026-11-21",
+      "name": "Yellowstone National Park",
+      "short_name": "Yellowstone",
+      "difficulty": 4,
+      "answer_format": "type_in",
+      "nps_code": "yell",
+      "clue_1": "Weather swings wildly: a warm 70-degree afternoon can plunge twenty degrees in a thunderstorm, and snow can fall in any month.",
+      "clue_2": "Its forests, meadows, and river valleys hold some of the best grizzly bear country in the lower 48 states.",
+      "clue_3": "Geysers, boiling hot springs, and bubbling mud pots dot the surface of one of the world's largest active volcanoes.",
+      "wrong_answers": [],
+      "accepted_answers": [
+        "yellowstone",
+        "yellowstone national park"
+      ],
+      "reasoning": "Clues 1 and 2 avoid the hydrothermal features and fit many northern mountain parks. Clue 3 saves the famous geysers and volcano for the easy clue.",
+      "calibration_note": "The NPS description was missing, so facts came from the things-to-do and places lists. Saved for later: the Mud Volcano area, Natural Bridge, mountain goats and bighorn sheep, Fort Yellowstone buildings."
+    },
+    {
+      "puzzle_date": "2026-11-22",
+      "name": "Hawaiʻi Volcanoes National Park",
+      "short_name": "Hawaiʻi Volcanoes",
+      "difficulty": 3,
+      "answer_format": "first_letter_count",
+      "nps_code": "havo",
+      "clue_1": "Warm steam rises from vents at your feet, and a faint sulfur smell hangs over ground crusted with colorful crystals.",
+      "clue_2": "A trail descends 400 feet through rainforest into a crater and crosses a lava lake that hardened after a 1959 eruption.",
+      "clue_3": "Home to two of the world's most active volcanoes, this park climbs from sea level to 13,680 feet and is a UNESCO World Heritage Site.",
+      "wrong_answers": [],
+      "accepted_answers": [
+        "hawaii volcanoes",
+        "hawaiʻi volcanoes",
+        "hawaii volcanoes national park",
+        "hawaiʻi volcanoes national park",
+        "hawai'i volcanoes",
+        "hawai'i volcanoes national park"
+      ],
+      "reasoning": "Clue 1 is a sensory scene of steam and crystals. Clue 2 is the hike across the hardened lava lake. Clue 3 gives the two active volcanoes and the elevation range, with the first letter and blank count helping.",
+      "calibration_note": "Pele, the Kūkamāhuākea steam and Kū references, and the Puʻuloa petroglyphs and footprints were skipped as Indigenous content. Saved for later: sea arch, Kahuku cattle ranch, Devastation Trail cinders, Kīpuka birdlife."
+    }
+  ]
+}
