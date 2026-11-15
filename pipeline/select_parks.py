@@ -146,23 +146,26 @@ def select_week(parks: list[Park], start: date, seed: int, days: int = 7) -> lis
 
 # --- Loading and the preview command ----------------------------------------
 
+PARK_COLUMNS = "id, nps_code, name, fame_score, last_shown_date, times_shown"
+
+
+def park_from_row(r: dict) -> Park:
+    """A Supabase parks row (which may have extra columns) -> Park."""
+    return Park(
+        id=r["id"],
+        nps_code=r["nps_code"],
+        name=r["name"],
+        fame_score=r["fame_score"],
+        last_shown_date=date.fromisoformat(r["last_shown_date"]) if r["last_shown_date"] else None,
+        times_shown=r["times_shown"],
+    )
+
+
 def load_parks() -> list[Park]:
     from db import get_client  # imported here so tests don't need Supabase
 
-    rows = get_client().table("parks").select(
-        "id, nps_code, name, fame_score, last_shown_date, times_shown"
-    ).execute().data
-    return [
-        Park(
-            id=r["id"],
-            nps_code=r["nps_code"],
-            name=r["name"],
-            fame_score=r["fame_score"],
-            last_shown_date=date.fromisoformat(r["last_shown_date"]) if r["last_shown_date"] else None,
-            times_shown=r["times_shown"],
-        )
-        for r in rows
-    ]
+    rows = get_client().table("parks").select(PARK_COLUMNS).execute().data
+    return [park_from_row(r) for r in rows]
 
 
 def next_monday(today: date) -> date:
