@@ -1,0 +1,1061 @@
+[
+  {
+    "name": "Acadia National Park",
+    "nps_code": "acad",
+    "fame_score": 4,
+    "fame_reasoning": "Raised from 3 to 4 on human review: widely recognized by name. (Original draft: Acadia is a top-ten most-visited park that many Americans recognize when they hear it, but fewer would name it unprompted.)",
+    "banned_words": [
+      "Cadillac Mountain",
+      "Mount Desert Island",
+      "Bar Harbor",
+      "Jordan Pond",
+      "Thunder Hole",
+      "Sand Beach",
+      "Bass Harbor Head Light",
+      "Schoodic Peninsula"
+    ]
+  },
+  {
+    "name": "Arches National Park",
+    "nps_code": "arch",
+    "fame_score": 4,
+    "fame_reasoning": "Arches and its iconic Delicate Arch are widely known, and the park's name is easy to recall unprompted.",
+    "banned_words": [
+      "Delicate Arch",
+      "Landscape Arch",
+      "Double Arch",
+      "Balanced Rock",
+      "Fiery Furnace",
+      "Devils Garden",
+      "Windows Section",
+      "Park Avenue",
+      "Moab"
+    ]
+  },
+  {
+    "name": "Badlands National Park",
+    "nps_code": "badl",
+    "fame_score": 3,
+    "fame_reasoning": "The Badlands are a familiar name from road trips and pop culture, but most people would need a hint to come up with it.",
+    "banned_words": [
+      "Wall Drug",
+      "Sage Creek",
+      "Notch Trail",
+      "Door Trail",
+      "Yellow Mounds",
+      "White River",
+      "Ben Reifel Visitor Center",
+      "Badlands Loop Road"
+    ]
+  },
+  {
+    "name": "Big Bend National Park",
+    "nps_code": "bibe",
+    "fame_score": 3,
+    "fame_reasoning": "Big Bend is well known in Texas and familiar nationally once heard, though few outside the region would name it unprompted.",
+    "banned_words": [
+      "Rio Grande",
+      "Chisos Mountains",
+      "Santa Elena Canyon",
+      "Boquillas Canyon",
+      "Emory Peak",
+      "Window Trail",
+      "Terlingua",
+      "Chihuahuan Desert"
+    ]
+  },
+  {
+    "name": "Biscayne National Park",
+    "nps_code": "bisc",
+    "fame_score": 2,
+    "fame_reasoning": "Biscayne Bay is a known name near Miami, but few people realize it is a national park.",
+    "banned_words": [
+      "Boca Chita Key",
+      "Elliott Key",
+      "Stiltsville",
+      "Biscayne Bay",
+      "Adams Key",
+      "Maritime Heritage Trail",
+      "Miami",
+      "Homestead"
+    ]
+  },
+  {
+    "name": "Black Canyon Of The Gunnison National Park",
+    "nps_code": "blca",
+    "fame_score": 1,
+    "fame_reasoning": "Black Canyon of the Gunnison is obscure to most Americans outside Colorado and park enthusiasts.",
+    "banned_words": [
+      "Gunnison River",
+      "Painted Wall",
+      "Chasm View",
+      "Warner Point",
+      "East Portal",
+      "Montrose",
+      "Curecanti"
+    ]
+  },
+  {
+    "name": "Bryce Canyon National Park",
+    "nps_code": "brca",
+    "fame_score": 3,
+    "fame_reasoning": "Bryce Canyon is a familiar name tied to its hoodoos and is recognized easily, though less often named first than Grand Canyon or Zion.",
+    "banned_words": [
+      "Bryce Amphitheater",
+      "Thor's Hammer",
+      "Navajo Loop",
+      "Queen's Garden",
+      "Sunset Point",
+      "Sunrise Point",
+      "Inspiration Point",
+      "Rainbow Point",
+      "Paunsaugunt Plateau"
+    ]
+  },
+  {
+    "name": "Canyonlands National Park",
+    "nps_code": "cany",
+    "fame_score": 3,
+    "fame_reasoning": "Canyonlands is recognizable once heard as one of Utah's big parks but is rarely named unprompted.",
+    "banned_words": [
+      "Island in the Sky",
+      "Mesa Arch",
+      "The Needles",
+      "The Maze",
+      "Green River",
+      "Colorado River",
+      "Shafer Trail",
+      "Druid Arch",
+      "Grand View Point",
+      "Moab"
+    ]
+  },
+  {
+    "name": "Capitol Reef National Park",
+    "nps_code": "care",
+    "fame_score": 1,
+    "fame_reasoning": "Capitol Reef is the least known of Utah's parks and most casual Americans have never heard of it.",
+    "banned_words": [
+      "Waterpocket Fold",
+      "Fruita",
+      "Hickman Bridge",
+      "Capitol Gorge",
+      "Cathedral Valley",
+      "Fremont River",
+      "Chimney Rock",
+      "Capitol Dome",
+      "Torrey"
+    ]
+  },
+  {
+    "name": "Carlsbad Caverns National Park",
+    "nps_code": "cave",
+    "fame_score": 3,
+    "fame_reasoning": "Carlsbad Caverns is a familiar name from school trips and travel, recognized quickly with a hint.",
+    "banned_words": [
+      "Big Room",
+      "Natural Entrance",
+      "Bat Flight",
+      "King's Palace",
+      "Lechuguilla Cave",
+      "Chihuahuan Desert",
+      "Whites City"
+    ]
+  },
+  {
+    "name": "Chiricahua National Park",
+    "nps_code": "chir",
+    "fame_score": 1,
+    "fame_reasoning": "Chiricahua is a very recent and remote national park that most Americans have never heard of.",
+    "banned_words": [
+      "Heart of Rocks",
+      "Big Balanced Rock",
+      "Faraway Ranch",
+      "Bonita Canyon",
+      "Massai Point",
+      "Echo Canyon",
+      "Sugarloaf Mountain",
+      "Cochise"
+    ]
+  },
+  {
+    "name": "Channel Islands National Park",
+    "nps_code": "chis",
+    "fame_score": 2,
+    "fame_reasoning": "People may have heard of the Channel Islands off California but few know them as a national park or could place them.",
+    "banned_words": [
+      "Anacapa Island",
+      "Santa Cruz Island",
+      "Santa Rosa Island",
+      "San Miguel Island",
+      "Santa Barbara Island",
+      "Painted Cave",
+      "Scorpion Anchorage",
+      "Ventura"
+    ]
+  },
+  {
+    "name": "Congaree National Park",
+    "nps_code": "cong",
+    "fame_score": 1,
+    "fame_reasoning": "Congaree is one of the least visited and least known parks to the general public.",
+    "banned_words": [
+      "Congaree River",
+      "Wateree River",
+      "Boardwalk Loop",
+      "Weston Lake",
+      "Cedar Creek",
+      "Harry Hampton Visitor Center",
+      "Columbia"
+    ]
+  },
+  {
+    "name": "Crater Lake National Park",
+    "nps_code": "crla",
+    "fame_score": 3,
+    "fame_reasoning": "Crater Lake is a recognizable name as the deepest U.S. lake, familiar once heard but not top of mind for most.",
+    "banned_words": [
+      "Wizard Island",
+      "Phantom Ship",
+      "Mount Mazama",
+      "Rim Drive",
+      "Cleetwood Cove",
+      "Garfield Peak",
+      "Watchman",
+      "Cascade Range"
+    ]
+  },
+  {
+    "name": "Cuyahoga Valley National Park",
+    "nps_code": "cuva",
+    "fame_score": 2,
+    "fame_reasoning": "Cuyahoga Valley is heavily visited but its name is mostly known regionally and few could place it.",
+    "banned_words": [
+      "Brandywine Falls",
+      "Ohio & Erie Canal",
+      "Towpath Trail",
+      "Cuyahoga River",
+      "Cuyahoga Valley Scenic Railroad",
+      "Boston Mill",
+      "Blue Hen Falls",
+      "The Ledges",
+      "Cleveland",
+      "Akron"
+    ]
+  },
+  {
+    "name": "Denali National Park & Preserve",
+    "nps_code": "dena",
+    "fame_score": 4,
+    "fame_reasoning": "Raised from 3 to 4 on human review: widely recognized by name. (Original draft: Denali is widely recognized as North America's tallest peak, familiar to many though not always named unprompted as a park.)",
+    "banned_words": [
+      "Mount McKinley",
+      "McKinley",
+      "Wonder Lake",
+      "Savage River",
+      "Polychrome Pass",
+      "Eielson Visitor Center",
+      "Kantishna",
+      "Alaska Range",
+      "Talkeetna"
+    ]
+  },
+  {
+    "name": "Death Valley National Park",
+    "nps_code": "deva",
+    "fame_score": 4,
+    "fame_reasoning": "Death Valley is famous as the hottest place on Earth and most Americans know its name.",
+    "banned_words": [
+      "Badwater Basin",
+      "Zabriskie Point",
+      "Furnace Creek",
+      "Racetrack Playa",
+      "Mesquite Flat Sand Dunes",
+      "Artists Palette",
+      "Dante's View",
+      "Scotty's Castle",
+      "Devils Golf Course",
+      "Ubehebe Crater"
+    ]
+  },
+  {
+    "name": "Dry Tortugas National Park",
+    "nps_code": "drto",
+    "fame_score": 2,
+    "fame_reasoning": "Dry Tortugas rings a bell for some travelers to Key West but most people couldn't place it.",
+    "banned_words": [
+      "Fort Jefferson",
+      "Garden Key",
+      "Loggerhead Key",
+      "Key West",
+      "Bush Key",
+      "Samuel Mudd",
+      "Loggerhead Lighthouse"
+    ]
+  },
+  {
+    "name": "Everglades National Park",
+    "nps_code": "ever",
+    "fame_score": 4,
+    "fame_reasoning": "The Everglades are known to nearly every American as Florida's famous alligator-filled wetland.",
+    "banned_words": [
+      "Anhinga Trail",
+      "Shark Valley",
+      "Flamingo",
+      "Florida Bay",
+      "Ten Thousand Islands",
+      "Royal Palm",
+      "Pa-hay-okee Overlook",
+      "Tamiami Trail",
+      "Ernest F. Coe Visitor Center"
+    ]
+  },
+  {
+    "name": "Gates Of The Arctic National Park & Preserve",
+    "nps_code": "gaar",
+    "fame_score": 1,
+    "fame_reasoning": "Gates of the Arctic is a roadless, rarely visited Alaskan park that most people have never heard of.",
+    "banned_words": [
+      "Brooks Range",
+      "Arrigetch Peaks",
+      "Noatak River",
+      "Anaktuvuk Pass",
+      "Bettles",
+      "Frigid Crags",
+      "Boreal Mountain",
+      "Koyukuk River",
+      "Alatna River"
+    ]
+  },
+  {
+    "name": "Glacier National Park",
+    "nps_code": "glac",
+    "fame_score": 4,
+    "fame_reasoning": "Raised from 3 to 4 on human review: widely recognized by name. (Original draft: Glacier is a well-loved park that people recognize readily, though it is named unprompted less often than the biggest icons.)",
+    "banned_words": [
+      "Going-to-the-Sun Road",
+      "Logan Pass",
+      "Lake McDonald",
+      "Many Glacier",
+      "Grinnell Glacier",
+      "Hidden Lake",
+      "St. Mary Lake",
+      "Highline Trail",
+      "Two Medicine",
+      "Waterton"
+    ]
+  },
+  {
+    "name": "Glacier Bay National Park & Preserve",
+    "nps_code": "glba",
+    "fame_score": 2,
+    "fame_reasoning": "Glacier Bay is known to cruise passengers but most Americans couldn't place it or distinguish it from other Alaska parks.",
+    "banned_words": [
+      "Margerie Glacier",
+      "Johns Hopkins Inlet",
+      "Bartlett Cove",
+      "Grand Pacific Glacier",
+      "Mount Fairweather",
+      "Fairweather Range",
+      "Gustavus",
+      "Inside Passage",
+      "Lamplugh Glacier"
+    ]
+  },
+  {
+    "name": "Great Basin National Park",
+    "nps_code": "grba",
+    "fame_score": 1,
+    "fame_reasoning": "Great Basin is a remote, little-visited Nevada park that most people don't know exists.",
+    "banned_words": [
+      "Wheeler Peak",
+      "Lehman Caves",
+      "Lexington Arch",
+      "Snake Range",
+      "Stella Lake",
+      "Baker Lake",
+      "Baker"
+    ]
+  },
+  {
+    "name": "Grand Canyon National Park",
+    "nps_code": "grca",
+    "fame_score": 4,
+    "fame_reasoning": "The Grand Canyon is the most iconic national park and virtually every American knows it.",
+    "banned_words": [
+      "South Rim",
+      "North Rim",
+      "Colorado River",
+      "Bright Angel Trail",
+      "Havasu Falls",
+      "Phantom Ranch",
+      "Mather Point",
+      "Desert View Watchtower",
+      "Kaibab Trail"
+    ]
+  },
+  {
+    "name": "Great Sand Dunes National Park & Preserve",
+    "nps_code": "grsa",
+    "fame_score": 2,
+    "fame_reasoning": "Great Sand Dunes has a descriptive name some have heard, but few could place it in Colorado.",
+    "banned_words": [
+      "Star Dune",
+      "High Dune",
+      "Medano Creek",
+      "Sangre de Cristo Mountains",
+      "San Luis Valley",
+      "Mosca Pass",
+      "Medano Pass"
+    ]
+  },
+  {
+    "name": "Great Smoky Mountains National Park",
+    "nps_code": "grsm",
+    "fame_score": 4,
+    "fame_reasoning": "The Great Smoky Mountains is America's most visited national park and widely known by name.",
+    "banned_words": [
+      "Clingmans Dome",
+      "Cades Cove",
+      "Gatlinburg",
+      "Newfound Gap",
+      "Mount LeConte",
+      "Alum Cave Trail",
+      "Laurel Falls",
+      "Roaring Fork",
+      "Appalachian Trail",
+      "Pigeon Forge"
+    ]
+  },
+  {
+    "name": "Grand Teton National Park",
+    "nps_code": "grte",
+    "fame_score": 4,
+    "fame_reasoning": "Raised from 3 to 4 on human review: widely recognized by name. (Original draft: Grand Teton is familiar to many as Yellowstone's neighbor but is less often named unprompted.)",
+    "banned_words": [
+      "Teton Range",
+      "Jackson Hole",
+      "Jenny Lake",
+      "Snake River",
+      "Mormon Row",
+      "Oxbow Bend",
+      "Jackson Lake",
+      "Signal Mountain",
+      "Schwabacher Landing"
+    ]
+  },
+  {
+    "name": "Guadalupe Mountains National Park",
+    "nps_code": "gumo",
+    "fame_score": 1,
+    "fame_reasoning": "Guadalupe Mountains is a remote, lightly visited Texas park unknown to most Americans.",
+    "banned_words": [
+      "Guadalupe Peak",
+      "El Capitan",
+      "McKittrick Canyon",
+      "Devil's Hall",
+      "Pine Springs",
+      "Salt Basin Dunes",
+      "Frijole Ranch",
+      "Capitan Reef",
+      "Dog Canyon"
+    ]
+  },
+  {
+    "name": "Haleakalā National Park",
+    "nps_code": "hale",
+    "fame_score": 2,
+    "fame_reasoning": "Haleakalā is known to Maui visitors for its sunrise, but many Americans couldn't place or spell it.",
+    "banned_words": [
+      "Maui",
+      "Haleakalā Crater",
+      "Kīpahulu",
+      "ʻOheʻo Gulch",
+      "Pools of ʻOheʻo",
+      "Sliding Sands Trail",
+      "Pīpīwai Trail",
+      "Waimoku Falls",
+      "Hosmer Grove"
+    ]
+  },
+  {
+    "name": "Hawaiʻi Volcanoes National Park",
+    "nps_code": "havo",
+    "fame_score": 3,
+    "fame_reasoning": "Hawaiʻi Volcanoes is widely recognized once heard thanks to frequent news of Kīlauea's eruptions.",
+    "banned_words": [
+      "Kīlauea",
+      "Mauna Loa",
+      "Halemaʻumaʻu",
+      "Chain of Craters Road",
+      "Thurston Lava Tube",
+      "Nāhuku",
+      "Kīlauea Iki",
+      "Pele",
+      "Big Island"
+    ]
+  },
+  {
+    "name": "Hot Springs National Park",
+    "nps_code": "hosp",
+    "fame_score": 2,
+    "fame_reasoning": "Hot Springs is known as an Arkansas town but few people realize it is a national park.",
+    "banned_words": [
+      "Bathhouse Row",
+      "Buckstaff Bathhouse",
+      "Fordyce Bathhouse",
+      "Quapaw Baths",
+      "Grand Promenade",
+      "Hot Springs Mountain Tower",
+      "Central Avenue"
+    ]
+  },
+  {
+    "name": "Indiana Dunes National Park",
+    "nps_code": "indu",
+    "fame_score": 2,
+    "fame_reasoning": "Indiana Dunes is a recent upgrade known regionally but not nationally recognized as a park.",
+    "banned_words": [
+      "Lake Michigan",
+      "Mount Baldy",
+      "West Beach",
+      "Dunes Succession Trail",
+      "Cowles Bog",
+      "Chellberg Farm",
+      "Porter",
+      "Gary"
+    ]
+  },
+  {
+    "name": "Isle Royale National Park",
+    "nps_code": "isro",
+    "fame_score": 2,
+    "fame_reasoning": "Isle Royale is known for its wolf-moose studies among some, but most people couldn't place it.",
+    "banned_words": [
+      "Lake Superior",
+      "Rock Harbor",
+      "Windigo",
+      "Greenstone Ridge",
+      "Mount Desor",
+      "Copper Harbor",
+      "Houghton",
+      "Ranger III",
+      "Passage Island"
+    ]
+  },
+  {
+    "name": "Gateway Arch National Park",
+    "nps_code": "jeff",
+    "fame_score": 3,
+    "fame_reasoning": "The Gateway Arch is a famous landmark many recognize instantly, though few think of it as a national park.",
+    "banned_words": [
+      "St. Louis",
+      "Old Courthouse",
+      "Mississippi River",
+      "Dred Scott",
+      "Eero Saarinen",
+      "Jefferson National Expansion Memorial",
+      "Museum at the Gateway Arch"
+    ]
+  },
+  {
+    "name": "Joshua Tree National Park",
+    "nps_code": "jotr",
+    "fame_score": 4,
+    "fame_reasoning": "Joshua Tree is a widely known name in pop culture and music, easily recalled by most Americans.",
+    "banned_words": [
+      "Skull Rock",
+      "Keys View",
+      "Cholla Cactus Garden",
+      "Hidden Valley",
+      "Arch Rock",
+      "Barker Dam",
+      "Jumbo Rocks",
+      "Ryan Mountain",
+      "Mojave Desert",
+      "Twentynine Palms"
+    ]
+  },
+  {
+    "name": "Katmai National Park & Preserve",
+    "nps_code": "katm",
+    "fame_score": 2,
+    "fame_reasoning": "Katmai has gained attention through Fat Bear Week, but most Americans couldn't place it.",
+    "banned_words": [
+      "Brooks Falls",
+      "Brooks Camp",
+      "Fat Bear Week",
+      "Valley of Ten Thousand Smokes",
+      "Novarupta",
+      "Naknek Lake",
+      "King Salmon",
+      "Hallo Bay"
+    ]
+  },
+  {
+    "name": "Kenai Fjords National Park",
+    "nps_code": "kefj",
+    "fame_score": 2,
+    "fame_reasoning": "Kenai Fjords is known to Alaska cruise and tour visitors but is vague to most Americans.",
+    "banned_words": [
+      "Harding Icefield",
+      "Exit Glacier",
+      "Seward",
+      "Resurrection Bay",
+      "Aialik Bay",
+      "Holgate Glacier",
+      "Bear Glacier",
+      "Kenai Peninsula"
+    ]
+  },
+  {
+    "name": "Kobuk Valley National Park",
+    "nps_code": "kova",
+    "fame_score": 1,
+    "fame_reasoning": "Kobuk Valley is one of the least visited parks in the system and almost unknown to the public.",
+    "banned_words": [
+      "Great Kobuk Sand Dunes",
+      "Kobuk River",
+      "Onion Portage",
+      "Little Kobuk Sand Dunes",
+      "Hunt River Dunes",
+      "Baird Mountains",
+      "Kotzebue",
+      "Western Arctic Caribou Herd"
+    ]
+  },
+  {
+    "name": "Lake Clark National Park & Preserve",
+    "nps_code": "lacl",
+    "fame_score": 1,
+    "fame_reasoning": "Lake Clark is a remote fly-in Alaskan park that most people have never heard of.",
+    "banned_words": [
+      "Redoubt Volcano",
+      "Iliamna Volcano",
+      "Port Alsworth",
+      "Twin Lakes",
+      "Richard Proenneke",
+      "Silver Salmon Creek",
+      "Chigmit Mountains",
+      "Crescent Lake",
+      "Tanalian Falls"
+    ]
+  },
+  {
+    "name": "Lassen Volcanic National Park",
+    "nps_code": "lavo",
+    "fame_score": 1,
+    "fame_reasoning": "Lassen Volcanic is little known outside Northern California and rarely recognized nationally.",
+    "banned_words": [
+      "Lassen Peak",
+      "Bumpass Hell",
+      "Cinder Cone",
+      "Manzanita Lake",
+      "Sulphur Works",
+      "Chaos Crags",
+      "Kings Creek Falls",
+      "Lake Helen",
+      "Devils Kitchen"
+    ]
+  },
+  {
+    "name": "Mammoth Cave National Park",
+    "nps_code": "maca",
+    "fame_score": 3,
+    "fame_reasoning": "Mammoth Cave is a familiar name as the world's longest cave and is recognized readily with a hint.",
+    "banned_words": [
+      "Frozen Niagara",
+      "Historic Entrance",
+      "Rotunda",
+      "Echo River",
+      "Mammoth Dome",
+      "Grand Avenue",
+      "Green River",
+      "Cave City",
+      "Bowling Green"
+    ]
+  },
+  {
+    "name": "Mesa Verde National Park",
+    "nps_code": "meve",
+    "fame_score": 3,
+    "fame_reasoning": "Mesa Verde's cliff dwellings are familiar from textbooks, making the name recognizable once heard.",
+    "banned_words": [
+      "Cliff Palace",
+      "Balcony House",
+      "Spruce Tree House",
+      "Long House",
+      "Square Tower House",
+      "Wetherill Mesa",
+      "Chapin Mesa",
+      "Step House",
+      "Far View"
+    ]
+  },
+  {
+    "name": "Mount Rainier National Park",
+    "nps_code": "mora",
+    "fame_score": 3,
+    "fame_reasoning": "Mount Rainier is an iconic Seattle-area peak that many recognize, though fewer would name it as a park unprompted.",
+    "banned_words": [
+      "Paradise",
+      "Sunrise",
+      "Skyline Trail",
+      "Wonderland Trail",
+      "Emmons Glacier",
+      "Nisqually Glacier",
+      "Carbon River",
+      "Ohanapecosh",
+      "Tipsoo Lake",
+      "Camp Muir"
+    ]
+  },
+  {
+    "name": "New River Gorge National Park & Preserve",
+    "nps_code": "neri",
+    "fame_score": 2,
+    "fame_reasoning": "New River Gorge is known for its bridge and quarter design, but most people couldn't place it as a park.",
+    "banned_words": [
+      "New River Gorge Bridge",
+      "Bridge Day",
+      "Endless Wall",
+      "Fayetteville",
+      "Thurmond",
+      "Sandstone Falls",
+      "Long Point",
+      "Gauley River",
+      "Grandview",
+      "Kaymoor"
+    ]
+  },
+  {
+    "name": "North Cascades National Park",
+    "nps_code": "noca",
+    "fame_score": 2,
+    "fame_reasoning": "North Cascades is one of the least visited parks and only vaguely familiar to most Americans.",
+    "banned_words": [
+      "Diablo Lake",
+      "Ross Lake",
+      "Cascade Pass",
+      "Lake Chelan",
+      "Stehekin",
+      "Mount Shuksan",
+      "Sahale Glacier",
+      "Skagit River"
+    ]
+  },
+  {
+    "name": "National Park of American Samoa",
+    "nps_code": "npsa",
+    "fame_score": 1,
+    "fame_reasoning": "The National Park of American Samoa is extremely remote and virtually unknown to most Americans.",
+    "banned_words": [
+      "Tutuila",
+      "Ofu",
+      "Taʻū",
+      "Pago Pago",
+      "Mount Alava",
+      "Ofu Beach",
+      "Vatia",
+      "Pola Island",
+      "Lata Mountain"
+    ]
+  },
+  {
+    "name": "Olympic National Park",
+    "nps_code": "olym",
+    "fame_score": 3,
+    "fame_reasoning": "Olympic is a recognizable park name in the Pacific Northwest, familiar once heard but not top of mind.",
+    "banned_words": [
+      "Hoh Rain Forest",
+      "Hurricane Ridge",
+      "Mount Olympus",
+      "Lake Crescent",
+      "Ruby Beach",
+      "Rialto Beach",
+      "Sol Duc",
+      "Quinault Rain Forest",
+      "Hole-in-the-Wall",
+      "Port Angeles"
+    ]
+  },
+  {
+    "name": "Petrified Forest National Park",
+    "nps_code": "pefo",
+    "fame_score": 3,
+    "fame_reasoning": "Petrified Forest is a memorable, descriptive name many recognize from Route 66 road trips.",
+    "banned_words": [
+      "Painted Desert",
+      "Route 66",
+      "Blue Mesa",
+      "Crystal Forest",
+      "Agate Bridge",
+      "Newspaper Rock",
+      "Painted Desert Inn",
+      "Puerco Pueblo",
+      "Jasper Forest",
+      "Giant Logs"
+    ]
+  },
+  {
+    "name": "Pinnacles National Park",
+    "nps_code": "pinn",
+    "fame_score": 1,
+    "fame_reasoning": "Pinnacles is a small, newer California park that most Americans have never heard of.",
+    "banned_words": [
+      "Bear Gulch Cave",
+      "Balconies Cave",
+      "High Peaks",
+      "Chalone Peak",
+      "Bear Gulch Reservoir",
+      "Salinas Valley",
+      "Soledad",
+      "San Andreas Fault"
+    ]
+  },
+  {
+    "name": "Redwood National and State Parks",
+    "nps_code": "redw",
+    "fame_score": 4,
+    "fame_reasoning": "The redwoods are famous nationwide as the world's tallest trees, making this park easy to name.",
+    "banned_words": [
+      "Fern Canyon",
+      "Tall Trees Grove",
+      "Lady Bird Johnson Grove",
+      "Prairie Creek",
+      "Jedediah Smith",
+      "Hyperion",
+      "Stout Grove",
+      "Klamath River",
+      "Del Norte Coast",
+      "Crescent City"
+    ]
+  },
+  {
+    "name": "Rocky Mountain National Park",
+    "nps_code": "romo",
+    "fame_score": 4,
+    "fame_reasoning": "Rocky Mountain National Park shares its name with the famous mountain range and is widely known.",
+    "banned_words": [
+      "Trail Ridge Road",
+      "Longs Peak",
+      "Estes Park",
+      "Bear Lake",
+      "Moraine Park",
+      "Sprague Lake",
+      "Alberta Falls",
+      "Dream Lake",
+      "Grand Lake",
+      "Continental Divide"
+    ]
+  },
+  {
+    "name": "Saguaro National Park",
+    "nps_code": "sagu",
+    "fame_score": 2,
+    "fame_reasoning": "Saguaro cacti are iconic, but few people know there's a national park named for them or could place it.",
+    "banned_words": [
+      "Tucson",
+      "Rincon Mountains",
+      "Tucson Mountains",
+      "Cactus Forest Loop",
+      "Signal Hill",
+      "Wasson Peak",
+      "Sonoran Desert",
+      "Bajada Loop Drive",
+      "Mica View"
+    ]
+  },
+  {
+    "name": "Sequoia & Kings Canyon National Parks",
+    "nps_code": "seki",
+    "fame_score": 3,
+    "fame_reasoning": "Sequoia and Kings Canyon are recognized for giant trees, familiar once heard but rarely named first.",
+    "banned_words": [
+      "General Sherman Tree",
+      "General Grant Tree",
+      "Moro Rock",
+      "Giant Forest",
+      "Crystal Cave",
+      "Mount Whitney",
+      "Tunnel Log",
+      "Grant Grove",
+      "Zumwalt Meadow",
+      "Mineral King"
+    ]
+  },
+  {
+    "name": "Shenandoah National Park",
+    "nps_code": "shen",
+    "fame_score": 3,
+    "fame_reasoning": "Shenandoah is a familiar name from song and its proximity to Washington, D.C., recognized readily with a hint.",
+    "banned_words": [
+      "Skyline Drive",
+      "Old Rag",
+      "Hawksbill Mountain",
+      "Big Meadows",
+      "Dark Hollow Falls",
+      "Blue Ridge Mountains",
+      "Skyland",
+      "Stony Man",
+      "Appalachian Trail",
+      "Luray"
+    ]
+  },
+  {
+    "name": "Theodore Roosevelt National Park",
+    "nps_code": "thro",
+    "fame_score": 2,
+    "fame_reasoning": "Everyone knows Theodore Roosevelt, but few know there's a national park in North Dakota named for him.",
+    "banned_words": [
+      "Teddy",
+      "Rough Rider",
+      "Little Missouri River",
+      "Painted Canyon",
+      "Medora",
+      "Elkhorn Ranch",
+      "Maltese Cross Cabin",
+      "Wind Canyon",
+      "Buck Hill"
+    ]
+  },
+  {
+    "name": "Virgin Islands National Park",
+    "nps_code": "viis",
+    "fame_score": 2,
+    "fame_reasoning": "People know the Virgin Islands as a destination, but few are aware of the national park there.",
+    "banned_words": [
+      "St. John",
+      "Trunk Bay",
+      "Cinnamon Bay",
+      "Cruz Bay",
+      "Annaberg Plantation",
+      "Maho Bay",
+      "Reef Bay Trail",
+      "Hawksnest Bay",
+      "Ram Head",
+      "Caneel Bay"
+    ]
+  },
+  {
+    "name": "Voyageurs National Park",
+    "nps_code": "voya",
+    "fame_score": 1,
+    "fame_reasoning": "Voyageurs is a water-based Minnesota park that most Americans outside the region have never heard of.",
+    "banned_words": [
+      "Kabetogama Lake",
+      "Rainy Lake",
+      "Namakan Lake",
+      "Sand Point Lake",
+      "Kettle Falls Hotel",
+      "Ellsworth Rock Gardens",
+      "Little American Island",
+      "International Falls",
+      "Ash River"
+    ]
+  },
+  {
+    "name": "White Sands National Park",
+    "nps_code": "whsa",
+    "fame_score": 3,
+    "fame_reasoning": "White Sands is a familiar name from photos and missile-range history, recognized easily once heard.",
+    "banned_words": [
+      "Tularosa Basin",
+      "Dunes Drive",
+      "Alkali Flat Trail",
+      "White Sands Missile Range",
+      "Lake Lucero",
+      "Interdune Boardwalk",
+      "Alamogordo",
+      "Holloman Air Force Base",
+      "Lake Otero"
+    ]
+  },
+  {
+    "name": "Wind Cave National Park",
+    "nps_code": "wica",
+    "fame_score": 2,
+    "fame_reasoning": "Wind Cave is often overshadowed by nearby Mount Rushmore and is only vaguely familiar to most.",
+    "banned_words": [
+      "Black Hills",
+      "Rankin Ridge",
+      "Natural Entrance",
+      "Fairgrounds Room",
+      "Elk Mountain",
+      "Custer State Park",
+      "Hot Springs"
+    ]
+  },
+  {
+    "name": "Wrangell - St Elias National Park & Preserve",
+    "nps_code": "wrst",
+    "fame_score": 1,
+    "fame_reasoning": "Despite being the largest national park, Wrangell-St. Elias is unknown to most Americans.",
+    "banned_words": [
+      "Kennecott",
+      "McCarthy",
+      "Mount St. Elias",
+      "Mount Wrangell",
+      "Root Glacier",
+      "Malaspina Glacier",
+      "Nabesna Road",
+      "McCarthy Road",
+      "Chitina",
+      "Copper River"
+    ]
+  },
+  {
+    "name": "Yellowstone National Park",
+    "nps_code": "yell",
+    "fame_score": 4,
+    "fame_reasoning": "Yellowstone is America's first and most famous national park, known to virtually everyone.",
+    "banned_words": [
+      "Old Faithful",
+      "Grand Prismatic Spring",
+      "Mammoth Hot Springs",
+      "Lamar Valley",
+      "Hayden Valley",
+      "Lower Falls",
+      "Norris Geyser Basin",
+      "Upper Geyser Basin",
+      "Steamboat Geyser",
+      "Firehole River"
+    ]
+  },
+  {
+    "name": "Yosemite National Park",
+    "nps_code": "yose",
+    "fame_score": 4,
+    "fame_reasoning": "Yosemite is one of the most famous national parks and most Americans could name it unprompted.",
+    "banned_words": [
+      "Half Dome",
+      "El Capitan",
+      "Glacier Point",
+      "Tunnel View",
+      "Bridalveil Fall",
+      "Mariposa Grove",
+      "Tuolumne Meadows",
+      "Vernal Fall",
+      "Hetch Hetchy",
+      "Mist Trail"
+    ]
+  },
+  {
+    "name": "Zion National Park",
+    "nps_code": "zion",
+    "fame_score": 4,
+    "fame_reasoning": "Zion is one of the most visited and widely known national parks in the country.",
+    "banned_words": [
+      "Angels Landing",
+      "The Narrows",
+      "Virgin River",
+      "Emerald Pools",
+      "Kolob Canyons",
+      "Springdale",
+      "Observation Point",
+      "The Subway",
+      "Court of the Patriarchs",
+      "Checkerboard Mesa"
+    ]
+  }
+]
