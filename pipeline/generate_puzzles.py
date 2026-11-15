@@ -75,7 +75,7 @@ class WeekDraft(BaseModel):
 
 # --- Gathering the inputs ----------------------------------------------------
 
-def load_inputs(db, start: date, seed: int) -> dict:
+def load_inputs(db, start: date, seed: int, with_fact_sheets: bool = True) -> dict:
     rows = db.table("parks").select(f"{PARK_COLUMNS}, short_name, states, banned_words").execute().data
     picks = select_week([park_from_row(r) for r in rows], start, seed)
     by_id = {r["id"]: r for r in rows}
@@ -97,7 +97,8 @@ def load_inputs(db, start: date, seed: int) -> dict:
         "past": {p.park.nps_code: [x for x in past if x["park_id"] == p.park.id] for p in picks},
         "park_names": sorted(r["name"] for r in rows),
         "notes": notes,
-        "fact_sheets": {p.park.nps_code: fetch_fact_sheet(p.park.nps_code) for p in picks},
+        "fact_sheets": {p.park.nps_code: fetch_fact_sheet(p.park.nps_code) for p in picks}
+                       if with_fact_sheets else {},
     }
 
 
@@ -246,13 +247,16 @@ def save_week(db, run_id: int, drafts: list[dict], inputs: dict) -> None:
         db.table("calibration_notes").insert(notes).execute()
 
 
-def draft_file(drafts: list[dict], inputs: dict, start: date, seed: int, model: str) -> dict:
-    """A dry run's output: everything play_drafts.py needs to play the week."""
+def draft_file(drafts: list[dict], inputs: dict, start: date, seed: int, model: str,
+               usage: dict) -> dict:
+    """A dry run's output: everything play_drafts.py needs to play the week,
+    plus the usage, so --from-draft can record the real cost."""
     by_code = {d["nps_code"]: d for d in drafts}
     return {
         "start": start.isoformat(),
         "seed": seed,
         "model": model,
+        "usage": usage,
         "puzzles": [{
             "puzzle_date": pick.puzzle_date.isoformat(),
             "name": pick.park.name,
@@ -282,6 +286,9 @@ def main() -> None:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--show-input", action="store_true", help="print Claude's input and stop")
     mode.add_argument("--dry-run", action="store_true", help="call Claude but save to drafts/, not Supabase")
+    mode.add_argument("--from-draft", type=Path, metavar="FILE",
+                      help="save a reviewed dry-run draft to Supabase instead of calling Claude "
+                           "(uses the draft's own start date, seed and model)")
     parser.add_argument("--start", type=date.fromisoformat)
     parser.add_argument("--seed", type=int)
     parser.add_argument("--model", default=DEFAULT_MODEL, choices=sorted(PRICES))
@@ -291,33 +298,56 @@ def main() -> None:
     # GitHub Actions log (Python otherwise holds it until the end).
     sys.stdout.reconfigure(line_buffering=True)
 
-    start = args.start or next_monday(datetime.now(ZoneInfo("America/New_York")).date())
-    seed = args.seed if args.seed is not None else new_seed()
-    print(f"Week of {start}, seed {seed}, model {args.model}")
-    print("Loading parks, past clues and NPS fact sheets...")
+    if args.from_draft:
+        week = json.loads(args.from_draft.read_text())
+        start, seed, model = date.fromisoformat(week["start"]), week["seed"], week["model"]
+    else:
+        start = args.start or next_monday(datetime.now(ZoneInfo("America/New_York")).date())
+        seed = args.seed if args.seed is not None else new_seed()
+        model = args.model
+    print(f"Week of {start}, seed {seed}, model {model}")
+    print("Loading parks and past clues...")
     db = get_client()
-    inputs = load_inputs(db, start, seed)
+    # A saved draft already has its clues, so it doesn't need NPS fact sheets.
+    inputs = load_inputs(db, start, seed, with_fact_sheets=not args.from_draft)
 
     if args.show_input:
         print(f"\n===== SYSTEM ({len(INSTRUCTIONS.split())} words) =====\n{INSTRUCTIONS}")
         print(f"===== USER =====\n{build_prompt(inputs)}")
         return
 
-    # read=180: give up if no data at all arrives for 3 minutes. The API sends
-    # periodic pings while the model thinks, so silence that long means the
-    # connection has stalled. (The SDK then retries, up to 2 times.)
-    client = anthropic.Anthropic(timeout=anthropic.Timeout(1800, read=180, connect=15))
+    if args.from_draft:
+        # Keep only Claude's fields; the draft file also has date/name/format for the playtest tool.
+        drafts = [{k: p[k] for k in PuzzleDraft.model_fields} for p in week["puzzles"]]
+        picked = sorted(p.park.nps_code for p in inputs["picks"])
+        if picked != sorted(d["nps_code"] for d in drafts):
+            raise SystemExit("This draft's seed no longer picks the same parks (park history has "
+                             "changed since it was written). Generate a fresh week instead.")
+        problems = validate(drafts, inputs)
+        if problems:
+            raise SystemExit("Draft fails validation:\n" + "\n".join(f"  - {x}" for x in problems))
 
-    if args.dry_run:
-        drafts, usage = write_week(client, args.model, inputs)
-        DRAFTS_DIR.mkdir(exist_ok=True)
-        path = DRAFTS_DIR / f"{start}_{args.model}_seed{seed}.json"
-        week = draft_file(drafts, inputs, start, seed, args.model)
-        path.write_text(json.dumps(week, indent=2, ensure_ascii=False) + "\n")
-        print_week(drafts, inputs)
-        print(f"\nSaved to {path} (not Supabase). "
-              f"Tokens: {usage['input_tokens']} in, {usage['output_tokens']} out (~${cost_of(args.model, usage):.2f})")
-        return
+        def get_week():
+            return drafts, week.get("usage")
+    else:
+        # read=180: give up if no data at all arrives for 3 minutes. The API
+        # sends periodic pings while the model thinks, so silence that long
+        # means the connection has stalled. (The SDK then retries, up to 2 times.)
+        client = anthropic.Anthropic(timeout=anthropic.Timeout(1800, read=180, connect=15))
+
+        if args.dry_run:
+            drafts, usage = write_week(client, model, inputs)
+            DRAFTS_DIR.mkdir(exist_ok=True)
+            path = DRAFTS_DIR / f"{start}_{model}_seed{seed}.json"
+            out = draft_file(drafts, inputs, start, seed, model, usage)
+            path.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+            print_week(drafts, inputs)
+            print(f"\nSaved to {path} (not Supabase). "
+                  f"Tokens: {usage['input_tokens']} in, {usage['output_tokens']} out (~${cost_of(model, usage):.2f})")
+            return
+
+        def get_week():
+            return write_week(client, model, inputs)
 
     # Real run. Refuse to start if any of these dates already has a puzzle,
     # before spending anything on Claude.
@@ -326,9 +356,9 @@ def main() -> None:
     if taken:
         raise SystemExit(f"Puzzles already exist for {sorted(t['puzzle_date'] for t in taken)}; nothing done.")
 
-    run_id = db.table("generation_runs").insert({"seed": seed, "model": args.model}).execute().data[0]["id"]
+    run_id = db.table("generation_runs").insert({"seed": seed, "model": model}).execute().data[0]["id"]
     try:
-        drafts, usage = write_week(client, args.model, inputs)
+        drafts, usage = get_week()
         save_week(db, run_id, drafts, inputs)
     except Exception as e:
         # Record the failure so it's visible in the database, then re-raise.
@@ -339,16 +369,18 @@ def main() -> None:
         }).eq("id", run_id).execute()
         raise
 
-    db.table("generation_runs").update({
-        "status": "succeeded",
-        "finished_at": datetime.now(timezone.utc).isoformat(),
-        "input_tokens": usage["input_tokens"],
-        "output_tokens": usage["output_tokens"],
-        "cost_usd": round(cost_of(args.model, usage), 4),
-    }).eq("id", run_id).execute()
+    finished = {"status": "succeeded", "finished_at": datetime.now(timezone.utc).isoformat()}
+    if usage:  # unknown for drafts written before usage was recorded
+        finished |= {
+            "input_tokens": usage["input_tokens"],
+            "output_tokens": usage["output_tokens"],
+            "cost_usd": round(cost_of(model, usage), 4),
+        }
+    db.table("generation_runs").update(finished).eq("id", run_id).execute()
 
     print_week(drafts, inputs)
-    print(f"\nSaved run {run_id}. Cost ~${cost_of(args.model, usage):.2f}")
+    cost = f", cost ~${cost_of(model, usage):.2f}" if usage else ""
+    print(f"\nSaved run {run_id}: {len(drafts)} puzzles for {dates[0]} to {dates[-1]}{cost}")
 
 
 if __name__ == "__main__":
