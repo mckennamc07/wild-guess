@@ -1,0 +1,4 @@
+# Everything the pipeline needs, plus tools for development only.
+# GitHub Actions' weekly job installs requirements.txt; you install this one.
+-r requirements.txt
+pytest==9.2.0
