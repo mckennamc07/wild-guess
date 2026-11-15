@@ -38,7 +38,9 @@ from nps import fetch_fact_sheet
 from puzzle_checks import check_puzzle, check_week
 from select_parks import PARK_COLUMNS, Pick, new_seed, next_monday, park_from_row, select_week
 
-DEFAULT_MODEL = "claude-sonnet-5-5"  # pending the model test (spec section 6)
+# Chosen 2026-11-15 after playtesting a Sonnet week. The full model test
+# (spec section 6) was skipped for now; try others any time with --model.
+DEFAULT_MODEL = "claude-sonnet-5-5"
 
 # Dollars per million tokens (input, output). Check current pricing before
 # relying on these; they feed the cost column in generation_runs.

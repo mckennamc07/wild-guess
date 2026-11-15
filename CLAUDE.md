@@ -44,7 +44,8 @@ command, and error message instead of just fixing it.
 - Clues: clue 1 atmospheric but plain (not poetic), clue 2 a specific
   feature, clue 3 always easy. Never name the park, state, or a banned word.
   Returning parks always get fresh clues.
-- Writing model: Sonnet (to be confirmed by a model test).
+- Writing model: Sonnet, chosen after playtesting its first draft week. The
+  Haiku/Opus model test is skipped for now and can be revisited any time.
 
 ## Rules
 
