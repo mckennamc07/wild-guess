@@ -6,7 +6,7 @@ Usage (from the repo root):
 
 Safe to run more than once: it upserts on nps_code, so a second run updates
 the same 63 rows instead of adding duplicates. It only sends name,
-short_name, nps_code and states, so it never overwrites fame scores or
+short_name, nps_code, states and photo, so it never overwrites fame scores or
 banned words added later.
 """
 
@@ -53,6 +53,22 @@ STATE_NAMES = {
 }
 
 
+def park_photo(nps_park: dict) -> dict | None:
+    """The park's featured photo (NPS lists it first), for the reveal screen."""
+    images = nps_park.get("images") or []
+    if not images or not images[0].get("url"):
+        return None
+    image = images[0]
+    return {
+        "url": image["url"],
+        "title": image.get("title", ""),
+        # Alt text describes the photo for screen readers; fall back to the title.
+        "alt": image.get("altText") or image.get("title", ""),
+        "caption": image.get("caption", ""),
+        "credit": image.get("credit", ""),
+    }
+
+
 def build_rows(nps_parks: list[dict]) -> list[dict]:
     """Turn NPS API records into rows for the parks table."""
     by_code = {p["parkCode"]: p for p in nps_parks}
@@ -72,6 +88,7 @@ def build_rows(nps_parks: list[dict]) -> list[dict]:
             # "ID,MT,WY" -> ["Idaho", "Montana", "Wyoming"]
             # A KeyError here means NPS used a code missing from STATE_NAMES.
             "states": [STATE_NAMES[s.strip()] for s in park["states"].split(",")],
+            "photo": park_photo(park),
         })
     return rows
 
