@@ -1,0 +1,9 @@
+# Vercel only builds the website in web/. Leaving the Python pipeline out
+# stops Vercel from mistaking this repo for a Python app.
+pipeline/
+tests/
+drafts/
+supabase/
+requirements.txt
+requirements-dev.txt
+pytest.ini
