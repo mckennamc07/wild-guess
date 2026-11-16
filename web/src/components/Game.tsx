@@ -42,13 +42,22 @@ export function Game({ data, date, storagePrefix }: Props) {
         {formatPuzzleDate(date)} · {FORMAT_LABELS[puzzle.answer_format]}
       </p>
 
+      {/* All three boxes are always on screen. A locked clue shows only its
+          label; its text isn't put on the page until it unlocks, so it can't
+          be read with the browser's inspect tool either. */}
       <ol className="clues">
-        {[puzzle.clue_1, puzzle.clue_2, puzzle.clue_3].slice(0, shown).map((clue, i) => (
-          <li key={i} className="clue">
-            <span className="clue-label">Clue {i + 1}</span>
-            <p>{clue}</p>
-          </li>
-        ))}
+        {[puzzle.clue_1, puzzle.clue_2, puzzle.clue_3].map((clue, i) => {
+          const unlocked = i < shown
+          return (
+            <li key={i} className={unlocked ? 'clue' : 'clue locked'}>
+              <span className="clue-label">
+                Clue {i + 1}
+                {!unlocked && <span className="visually-hidden"> (locked)</span>}
+              </span>
+              {unlocked && <p className="clue-text">{clue}</p>}
+            </li>
+          )
+        })}
       </ol>
 
       {wrongGuesses.length > 0 && (

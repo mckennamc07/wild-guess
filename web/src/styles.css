@@ -1,21 +1,24 @@
-/* Wild Guess: classic park-service look.
+/* Wild Guess: pale sage page, black text, square boxes with gray
+   outlines. The footer is black with white text.
    Colors live in variables ("custom properties") here so the whole palette
-   can change in one place. */
+   can change in one place.
+
+   Contrast (WCAG AA: text 4.5:1, borders/focus rings 3:1):
+     black text on page     17.5   |  gray outline on page    3.6
+     white text on black    21.0   |  (about #858585 is the lightest gray
+                                       that still passes; this leaves a margin) */
 
 :root {
-  --forest: #2f5d3a; /* trail-sign green */
-  --forest-dark: #1f3f27;
-  --earth: #7a5a3a; /* brown accents */
-  --rust: #a5492a; /* the one warm highlight */
-  --parchment: #f6f0e1; /* page background */
-  --card: #fffdf7;
-  --line: #ddd2b8;
-  --text: #2b2b26;
-  --muted: #6b665a;
-  --good: #2f6b3f;
-  --radius: 10px;
-  --heading: 'Bitter', Georgia, serif;
-  --body: 'Source Sans 3', system-ui, sans-serif;
+  --bg: #e4ede4; /* the page (boxes are clear, so they show it too) */
+  --ink: #000000; /* all text, focus rings, the Guess button */
+  --line: #7a7a7a; /* gray outline on every box */
+  --footer: #000000; /* "Support the parks" band */
+  --on-footer: #ffffff;
+
+  --radius: 0; /* hard, square corners everywhere */
+  --title: 'Pacifico', cursive; /* script font: site title only */
+  --heading: 'Work Sans', system-ui, sans-serif;
+  --body: 'Work Sans', system-ui, sans-serif;
   color-scheme: light;
 }
 
@@ -25,15 +28,15 @@
 
 body {
   margin: 0;
-  background: var(--parchment);
-  color: var(--text);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--body);
   font-size: 18px;
   line-height: 1.55;
 }
 
 a {
-  color: var(--forest);
+  color: var(--ink);
 }
 
 h1,
@@ -43,14 +46,17 @@ h3 {
   line-height: 1.2;
 }
 
-/* Page layout: a full-width green header and footer, with the game in a
-   centered column between them. The column grows to fill the screen, so the
-   footer stays at the bottom even when there's little content. */
+/* Page layout: header and footer full width, with the game in a centered
+   column between them. The column grows to fill the screen, so the footer
+   stays at the bottom even when there's little content. */
 #root {
   min-height: 100vh;
   min-height: 100dvh; /* mobile browsers: the visible height, excluding toolbars */
   display: flex;
   flex-direction: column;
+  /* 100vw counts the desktop scrollbar too, so the full-width photo can poke
+     a few pixels past the edge. "clip" trims that without adding a scrollbar. */
+  overflow-x: clip;
 }
 
 .page {
@@ -76,42 +82,77 @@ h3 {
   clip: rect(0 0 0 0);
 }
 
-/* --- Header: like a park entrance sign --------------------------------- */
+/* --- Boxes: every box is clear (white) with the same gray outline ------- */
+
+.demo-banner,
+.clue,
+.tab,
+.tab-panel,
+.nation,
+.chip,
+input,
+.choice,
+.secondary {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Things you type in or tap get a thicker outline so they read as controls. */
+input,
+.choice,
+.secondary {
+  border-width: 2px;
+}
+
+/* Focus rings: black on the page, white in the footer. */
+button:focus-visible,
+summary:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* --- Header: blends into the page ----------------------------------------- */
 
 .site-header {
   padding: 18px 0 14px;
-  background: var(--forest);
-  color: var(--parchment);
   text-align: center;
-  border-bottom: 5px solid var(--earth);
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 2rem;
-  letter-spacing: 0.04em;
+  font-family: var(--title);
+  font-weight: 400; /* Pacifico has one weight; bold would be faked */
+  font-size: 2.4rem;
+  line-height: 1.4; /* room for its tall loops */
 }
 
 .tagline {
   margin: 2px 0 0;
-  opacity: 0.85;
+  color: var(--ink);
   font-size: 0.95rem;
 }
 
 .status {
   text-align: center;
-  color: var(--muted);
+  color: var(--ink);
   margin: 48px 0;
 }
 
+/* Errors are bold with a warning sign, so the meaning doesn't rely on color. */
 .status.error {
-  color: var(--rust);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.status.error::before {
+  content: '⚠ ';
 }
 
 .demo-banner {
-  background: #fff3cd;
-  border: 1px dashed var(--earth);
-  border-radius: var(--radius);
+  border-style: dashed;
   padding: 6px 12px;
   font-size: 0.85rem;
   text-align: center;
@@ -122,7 +163,7 @@ h3 {
   padding: 0;
   border: none;
   background: none;
-  color: var(--forest);
+  color: var(--ink);
   text-decoration: underline;
   font-size: inherit;
 }
@@ -130,7 +171,7 @@ h3 {
 /* --- Clues ---------------------------------------------------------------- */
 
 .puzzle-meta {
-  color: var(--muted);
+  color: var(--ink);
   font-size: 0.9rem;
   margin: 0 0 12px;
   text-align: center;
@@ -141,40 +182,37 @@ h3 {
   padding: 0;
   margin: 0 0 16px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .clue {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--forest);
-  border-radius: var(--radius);
   padding: 12px 16px;
+}
+
+/* The box stays put; only the text fades in when a clue unlocks. */
+.clue-text {
+  margin: 4px 0 0;
   animation: appear 0.3s ease-out;
 }
 
-.clue p {
-  margin: 4px 0 0;
+/* Clues on the reveal screen are all there at once, so no fade. */
+.reveal .clue-text {
+  animation: none;
 }
 
 .clue-label {
   font-family: var(--heading);
   font-size: 0.8rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--earth);
+  color: var(--ink);
 }
 
 .clue-label em {
   text-transform: none;
   letter-spacing: 0;
   font-family: var(--body);
-}
-
-.clues.compact .clue {
-  padding: 8px 12px;
-  font-size: 0.95rem;
-  animation: none;
 }
 
 @keyframes appear {
@@ -185,22 +223,20 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .clue {
+  .clue-text {
     animation: none;
   }
 }
 
 .wrong-guesses {
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .chip {
   display: inline-block;
   margin: 0 4px 4px 0;
   padding: 1px 10px;
-  border-radius: 999px;
-  background: #efe5cf;
   text-decoration: line-through;
 }
 
@@ -215,7 +251,7 @@ h3 {
   margin: 0;
   text-align: center;
   font-family: var(--heading);
-  color: var(--forest-dark);
+  color: var(--ink);
 }
 
 .letters {
@@ -229,14 +265,15 @@ input {
   width: 100%;
   font: inherit;
   padding: 12px 14px;
-  border: 2px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
+}
+
+input::placeholder {
+  color: #4d4d4d; /* browser default grey is too faint; this is 5.6:1 */
 }
 
 input:focus {
   outline: none;
-  border-color: var(--forest);
+  border-color: var(--ink); /* outline turns black while you type */
 }
 
 .actions {
@@ -252,32 +289,27 @@ button {
   min-height: 44px; /* comfortable tap target */
 }
 
-button:focus-visible,
-summary:focus-visible,
-a:focus-visible {
-  outline: 3px solid var(--rust);
-  outline-offset: 2px;
-}
-
 .primary {
   flex: 1;
-  background: var(--forest);
-  color: var(--parchment);
+  background: var(--ink); /* the one filled button, so it's clearly the main action */
+  color: var(--bg);
   border: none;
   font-weight: 600;
   padding: 10px 18px;
 }
 
 .primary:hover {
-  background: var(--forest-dark);
+  background: #333333;
 }
 
 .secondary {
   flex: 1;
-  background: transparent;
-  color: var(--forest);
-  border: 2px solid var(--forest);
   padding: 8px 16px;
+}
+
+.secondary:hover,
+.choice:hover:not(:disabled) {
+  border-color: var(--ink);
 }
 
 .choices {
@@ -288,13 +320,6 @@ a:focus-visible {
 .choice {
   text-align: left;
   padding: 12px 16px;
-  background: var(--card);
-  border: 2px solid var(--line);
-  color: var(--text);
-}
-
-.choice:hover:not(:disabled) {
-  border-color: var(--forest);
 }
 
 .choice:disabled {
@@ -308,57 +333,55 @@ a:focus-visible {
 .result {
   text-align: center;
   padding: 16px;
-  border-radius: var(--radius);
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-top: 6px solid var(--forest);
-  margin-bottom: 12px;
-}
-
-.result.missed {
-  border-top-color: var(--earth);
+  margin: 8px 0 16px;
 }
 
 .result-line {
   margin: 0;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .result.solved .result-line {
-  color: var(--good);
   font-weight: 600;
 }
 
 .park-name {
   margin: 4px 0 0;
-  font-size: 1.6rem;
-  color: var(--forest-dark);
+  font-size: 1.8rem;
+  color: var(--ink);
 }
 
 .park-states {
   margin: 2px 0 0;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 0.9rem;
 }
 
+/* Full-bleed photo: wider than the 640px text column, up to 1100px.
+   The negative side margins pull it out of the column evenly:
+   (column width − photo width) / 2 on each side. */
 .park-photo {
-  margin: 14px 0 0;
+  --photo-width: min(100vw, 1100px);
+  width: var(--photo-width);
+  margin: 0 calc((100% - var(--photo-width)) / 2) 20px;
 }
 
 .park-photo img {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 2; /* reserve space so the page doesn't jump while it loads */
-  object-fit: cover;
-  border-radius: calc(var(--radius) - 2px);
-  border: 3px solid var(--earth);
-  background: #e7dcc2;
+  max-height: 70vh; /* on wide screens, still leave room to see what's below */
+  object-fit: cover; /* crop to fill instead of squishing */
+  background: #eeeeee; /* shows while the photo loads */
 }
 
 .park-photo figcaption {
-  margin-top: 6px;
+  margin: 6px auto 0;
+  max-width: 640px;
+  padding: 0 16px;
+  text-align: center;
   font-size: 0.8rem;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .park-photo .credit {
@@ -368,7 +391,7 @@ a:focus-visible {
 details > summary {
   cursor: pointer;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--ink);
 }
 
 .all-clues {
@@ -379,36 +402,39 @@ details > summary {
   margin-bottom: 8px;
 }
 
+/* Folder tabs: the tabs you're not on are black. The one you're on is white
+   and has no bottom edge, so it flows straight into the panel below. */
 .tabs {
   display: flex;
   gap: 4px;
-  border-bottom: 2px solid var(--forest);
 }
 
 .tab {
   flex: 1;
   padding: 8px 6px;
-  border: 1px solid var(--line);
   border-bottom: none;
-  border-radius: var(--radius) var(--radius) 0 0;
-  background: #efe5cf;
-  color: var(--text);
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
   font-size: 0.9rem;
   line-height: 1.2;
 }
 
+.tab:hover {
+  background: #333333;
+}
+
 .tab.active {
-  background: var(--forest);
-  color: var(--parchment);
-  border-color: var(--forest);
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--line);
   font-weight: 600;
+  /* Overlap the panel's top edge by 1px so there's no line under this tab. */
+  position: relative;
+  margin-bottom: -1px;
 }
 
 .tab-panel {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-top: none;
-  border-radius: 0 0 var(--radius) var(--radius);
   padding: 4px 16px 16px;
 }
 
@@ -421,7 +447,7 @@ details > summary {
 .doc-note,
 .native-land,
 .people-intro {
-  color: var(--muted);
+  color: var(--ink);
   font-size: 0.92rem;
 }
 
@@ -431,7 +457,7 @@ details > summary {
 
 .player-note {
   font-size: 0.92rem;
-  color: var(--earth);
+  color: var(--ink);
 }
 
 .nations {
@@ -443,15 +469,12 @@ details > summary {
 }
 
 .nation {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
   padding: 10px 14px;
-  background: var(--parchment);
 }
 
 .nation > summary {
   font-family: var(--heading);
-  color: var(--forest-dark);
+  color: var(--ink);
 }
 
 .nation-body {
@@ -480,20 +503,22 @@ details > summary {
 
 .exa-credit {
   margin: 4px 0 0;
-  color: var(--muted);
+  color: var(--ink);
 }
 
-/* --- Footer: the same green band as the header ---------------------------- */
-
+/* --- Footer: the inverse of the page, black with white text ------------- */
 .site-footer {
-  background: var(--forest);
-  color: var(--parchment);
-  border-top: 5px solid var(--earth);
+  background: var(--footer);
+  color: var(--on-footer);
   padding: 24px 0 28px;
 }
 
 .site-footer a {
-  color: var(--parchment);
+  color: var(--on-footer);
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--on-footer);
 }
 
 .site-footer h2 {
@@ -518,22 +543,18 @@ details > summary {
 .support-links span {
   display: block;
   font-size: 0.85rem;
-  opacity: 0.8;
+  color: var(--on-footer);
 }
 
 .disclaimer {
-  border-top: 1px solid rgba(246, 240, 225, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 14px;
   font-size: 0.8rem;
-  opacity: 0.85;
+  color: var(--on-footer);
 }
 
 .disclaimer p {
   margin: 0 0 8px;
-}
-
-.site-footer a:focus-visible {
-  outline-color: var(--parchment);
 }
 
 @media (min-width: 700px) {

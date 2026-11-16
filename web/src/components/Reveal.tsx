@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Markdown from 'react-markdown'
-import { points, type GameState } from '../lib/game'
+import type { GameState } from '../lib/game'
 import type { GameData, SectionName } from '../lib/types'
 import { PeopleHistory } from './PeopleHistory'
 import { Sources } from './Sources'
@@ -16,32 +16,33 @@ export function Reveal({ data, state }: { data: GameData; state: GameState }) {
   const { puzzle, park, profile } = data
   const clues = [puzzle.clue_1, puzzle.clue_2, puzzle.clue_3]
   const solved = state.solvedOn !== null
-  const score = points(state)
 
   return (
     <section className="reveal">
       <div className={`result ${solved ? 'solved' : 'missed'}`}>
         <p className="result-line">
           {solved
-            ? `You got it on clue ${state.solvedOn}! +${score} point${score > 1 ? 's' : ''}`
+            ? `You got it on clue ${state.solvedOn}!`
             : 'Not this time. The park was…'}
         </p>
         <h2 className="park-name">{park.name}</h2>
         <p className="park-states">{park.states.join(' · ')}</p>
-        {park.photo && (
-          <figure className="park-photo">
-            <img src={park.photo.url} alt={park.photo.alt} loading="lazy" />
-            <figcaption>
-              {park.photo.title}
-              {park.photo.credit && <span className="credit"> · {park.photo.credit}</span>}
-            </figcaption>
-          </figure>
-        )}
       </div>
+
+      {/* Outside the result block so it can stretch past the text column. */}
+      {park.photo && (
+        <figure className="park-photo">
+          <img src={park.photo.url} alt={park.photo.alt} loading="lazy" />
+          <figcaption>
+            {park.photo.title}
+            {park.photo.credit && <span className="credit"> · {park.photo.credit}</span>}
+          </figcaption>
+        </figure>
+      )}
 
       <details className="all-clues" open={!solved}>
         <summary>The clues</summary>
-        <ol className="clues compact">
+        <ol className="clues">
           {clues.map((clue, i) => (
             <li key={i} className="clue">
               <span className="clue-label">
