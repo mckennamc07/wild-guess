@@ -225,3 +225,6 @@ drafts/playtest_*
 
 # The Python template above ignores lib/ (build output); the frontend keeps code there.
 !web/src/lib/
+
+# macOS folder settings
+.DS_Store
