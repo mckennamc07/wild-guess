@@ -1,0 +1,449 @@
+/* Wild Guess: classic park-service look.
+   Colors live in variables ("custom properties") here so the whole palette
+   can change in one place. */
+
+:root {
+  --forest: #2f5d3a; /* trail-sign green */
+  --forest-dark: #1f3f27;
+  --earth: #7a5a3a; /* brown accents */
+  --rust: #a5492a; /* the one warm highlight */
+  --parchment: #f6f0e1; /* page background */
+  --card: #fffdf7;
+  --line: #ddd2b8;
+  --text: #2b2b26;
+  --muted: #6b665a;
+  --good: #2f6b3f;
+  --radius: 10px;
+  --heading: 'Bitter', Georgia, serif;
+  --body: 'Source Sans 3', system-ui, sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--forest);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  line-height: 1.2;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px 32px; /* 16px side gutters on phones */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* --- Header: like a park entrance sign --------------------------------- */
+
+.site-header {
+  margin: 0 -16px 20px;
+  padding: 18px 16px 14px;
+  background: var(--forest);
+  color: var(--parchment);
+  text-align: center;
+  border-bottom: 5px solid var(--earth);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin: 2px 0 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.status {
+  text-align: center;
+  color: var(--muted);
+  margin: 48px 0;
+}
+
+.status.error {
+  color: var(--rust);
+}
+
+.demo-banner {
+  background: #fff3cd;
+  border: 1px dashed var(--earth);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* --- Clues ---------------------------------------------------------------- */
+
+.puzzle-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.clues {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.clue {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--forest);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  animation: appear 0.3s ease-out;
+}
+
+.clue p {
+  margin: 4px 0 0;
+}
+
+.clue-label {
+  font-family: var(--heading);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--earth);
+}
+
+.clue-label em {
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--body);
+}
+
+.clues.compact .clue {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  animation: none;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clue {
+    animation: none;
+  }
+}
+
+.wrong-guesses {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.chip {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: #efe5cf;
+  text-decoration: line-through;
+}
+
+/* --- Guessing ------------------------------------------------------------- */
+
+.guess {
+  display: grid;
+  gap: 12px;
+}
+
+.letter-hint {
+  margin: 0;
+  text-align: center;
+  font-family: var(--heading);
+  color: var(--forest-dark);
+}
+
+.letters {
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  white-space: pre; /* keep the gaps between words */
+  overflow-wrap: anywhere;
+}
+
+input {
+  width: 100%;
+  font: inherit;
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--forest);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--radius);
+  min-height: 44px; /* comfortable tap target */
+}
+
+button:focus-visible,
+summary:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--rust);
+  outline-offset: 2px;
+}
+
+.primary {
+  flex: 1;
+  background: var(--forest);
+  color: var(--parchment);
+  border: none;
+  font-weight: 600;
+  padding: 10px 18px;
+}
+
+.primary:hover {
+  background: var(--forest-dark);
+}
+
+.secondary {
+  flex: 1;
+  background: transparent;
+  color: var(--forest);
+  border: 2px solid var(--forest);
+  padding: 8px 16px;
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+}
+
+.choice {
+  text-align: left;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  color: var(--text);
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--forest);
+}
+
+.choice:disabled {
+  opacity: 0.45;
+  text-decoration: line-through;
+  cursor: default;
+}
+
+/* --- Reveal --------------------------------------------------------------- */
+
+.result {
+  text-align: center;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--forest);
+  margin-bottom: 12px;
+}
+
+.result.missed {
+  border-top-color: var(--earth);
+}
+
+.result-line {
+  margin: 0;
+  color: var(--muted);
+}
+
+.result.solved .result-line {
+  color: var(--good);
+  font-weight: 600;
+}
+
+.park-name {
+  margin: 4px 0 0;
+  font-size: 1.6rem;
+  color: var(--forest-dark);
+}
+
+.park-states {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.all-clues {
+  margin-bottom: 12px;
+}
+
+.all-clues > summary {
+  margin-bottom: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--forest);
+}
+
+.tab {
+  flex: 1;
+  padding: 8px 6px;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #efe5cf;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.tab.active {
+  background: var(--forest);
+  color: var(--parchment);
+  border-color: var(--forest);
+  font-weight: 600;
+}
+
+.tab-panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 4px 16px 16px;
+}
+
+.section-body ul {
+  padding-left: 20px;
+}
+
+.coming-soon,
+.note,
+.doc-note,
+.native-land,
+.people-intro {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.note {
+  font-style: italic;
+}
+
+.player-note {
+  font-size: 0.92rem;
+  color: var(--earth);
+}
+
+.nations {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.nation {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  background: var(--parchment);
+}
+
+.nation > summary {
+  font-family: var(--heading);
+  color: var(--forest-dark);
+}
+
+.nation-body {
+  font-size: 0.95rem;
+}
+
+.today > p:first-of-type {
+  display: inline; /* keep "Today:" on the same line as the text */
+}
+
+.displacement h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.sources {
+  margin-top: 12px;
+  font-size: 0.88rem;
+}
+
+.sources ul {
+  padding-left: 18px;
+  margin: 6px 0;
+  overflow-wrap: anywhere; /* long URLs/titles never force sideways scroll */
+}
+
+.exa-credit {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+/* --- Footer ----------------------------------------------------------------- */
+
+.how-it-works {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .choices {
+    grid-template-columns: 1fr 1fr;
+  }
+}
