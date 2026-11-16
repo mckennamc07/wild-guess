@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Game } from './components/Game'
-import { HowItWorks } from './components/HowItWorks'
+import { SiteFooter } from './components/SiteFooter'
 import { loadGame } from './lib/api'
 import { easternToday } from './lib/dates'
 import { clearProgress } from './lib/progress'
@@ -39,13 +39,18 @@ export default function App() {
   }, [])
 
   return (
-    <div className="page">
+    <>
+      {/* Header and footer sit outside the content column so their green
+          background spans the full screen width; .band-inner keeps their
+          text centered at a readable width. */}
       <header className="site-header">
-        <h1>Wild Guess</h1>
-        <p className="tagline">Three clues. One national park.</p>
+        <div className="band-inner">
+          <h1>Wild Guess</h1>
+          <p className="tagline">Daily U.S. National Park trivia game</p>
+        </div>
       </header>
 
-      <main>
+      <main className="page">
         {status.kind === 'loading' && <p className="status">Loading today's park…</p>}
         {status.kind === 'error' && (
           <p className="status error">Something went wrong loading the puzzle. {status.message}</p>
@@ -76,7 +81,7 @@ export default function App() {
         )}
       </main>
 
-      <HowItWorks />
-    </div>
+      <SiteFooter />
+    </>
   )
 }

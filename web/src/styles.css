@@ -43,10 +43,29 @@ h3 {
   line-height: 1.2;
 }
 
+/* Page layout: a full-width green header and footer, with the game in a
+   centered column between them. The column grows to fill the screen, so the
+   footer stays at the bottom even when there's little content. */
+#root {
+  min-height: 100vh;
+  min-height: 100dvh; /* mobile browsers: the visible height, excluding toolbars */
+  display: flex;
+  flex-direction: column;
+}
+
 .page {
+  flex: 1;
+  width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 16px 32px; /* 16px side gutters on phones */
+  padding: 20px 16px 32px; /* 16px side gutters on phones */
+}
+
+/* The text inside the full-width bands lines up with the game column. */
+.band-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .visually-hidden {
@@ -60,8 +79,7 @@ h3 {
 /* --- Header: like a park entrance sign --------------------------------- */
 
 .site-header {
-  margin: 0 -16px 20px;
-  padding: 18px 16px 14px;
+  padding: 18px 0 14px;
   background: var(--forest);
   color: var(--parchment);
   text-align: center;
@@ -465,15 +483,57 @@ details > summary {
   color: var(--muted);
 }
 
-/* --- Footer ----------------------------------------------------------------- */
+/* --- Footer: the same green band as the header ---------------------------- */
 
-.how-it-works {
-  margin-top: 32px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  font-size: 0.82rem;
-  color: var(--muted);
-  text-align: center;
+.site-footer {
+  background: var(--forest);
+  color: var(--parchment);
+  border-top: 5px solid var(--earth);
+  padding: 24px 0 28px;
+}
+
+.site-footer a {
+  color: var(--parchment);
+}
+
+.site-footer h2 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+}
+
+.support-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.support-links a {
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.support-links span {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.disclaimer {
+  border-top: 1px solid rgba(246, 240, 225, 0.25);
+  padding-top: 14px;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.disclaimer p {
+  margin: 0 0 8px;
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--parchment);
 }
 
 @media (min-width: 700px) {
