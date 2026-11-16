@@ -10,7 +10,7 @@ const SUPPORT_LINKS = [
   {
     href: 'https://www.nps.gov/findapark/index.htm',
     label: 'Find a park near you',
-    note: 'Search every National Park Service site by state or activity',
+    note: 'Search every National Park Service site by state or activity. Not closeby to a National Park? Check out a National Monument, Historic Site, or other NPS site!',
   },
   {
     href: 'https://lnt.org/why/7-principles/',
