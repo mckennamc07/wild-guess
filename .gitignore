@@ -222,3 +222,9 @@ __marimo__/
 # Local review output from enrich_profiles.py and playtest ratings (regenerated on each run)
 drafts/profiles_*
 drafts/playtest_*
+
+# The Python template above ignores lib/ (build output); the frontend keeps code there.
+!web/src/lib/
+
+# macOS folder settings
+.DS_Store

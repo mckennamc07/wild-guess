@@ -24,8 +24,8 @@ command, and error message instead of just fixing it.
   then one Claude call writes all 7 puzzles as structured JSON. Code
   validates them and saves them to Supabase. Puzzles auto-publish unless rejected.
 - **Park profiles:** fun facts and geology from the NPS API; Indigenous and
-  displacement history researched with Exa, always reviewed by me before
-  publishing. Never write history from model memory.
+  displacement history researched with Exa, and should be reviewed by me
+  before publishing. Never write history from model memory.
 - **Website:** React + Vite on Vercel. Reads approved rows from Supabase. Never calls an AI.
 
 ## Where things live
