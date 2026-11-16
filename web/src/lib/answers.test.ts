@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { canonical, editDistance, isCorrectGuess, letterHint, seededShuffle } from './answers'
 import type { Park, Puzzle } from './types'
 
-const park = (id: number, name: string, short_name: string): Park => ({ id, name, short_name, nps_code: '', states: [] })
+const park = (id: number, name: string, short_name: string): Park => ({
+  id, name, short_name, nps_code: '', states: [], photo: null,
+})
 
 const PARKS = [
   park(1, 'Glacier National Park', 'Glacier'),

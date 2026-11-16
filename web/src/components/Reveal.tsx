@@ -28,6 +28,15 @@ export function Reveal({ data, state }: { data: GameData; state: GameState }) {
         </p>
         <h2 className="park-name">{park.name}</h2>
         <p className="park-states">{park.states.join(' · ')}</p>
+        {park.photo && (
+          <figure className="park-photo">
+            <img src={park.photo.url} alt={park.photo.alt} loading="lazy" />
+            <figcaption>
+              {park.photo.title}
+              {park.photo.credit && <span className="credit"> · {park.photo.credit}</span>}
+            </figcaption>
+          </figure>
+        )}
       </div>
 
       <details className="all-clues" open={!solved}>

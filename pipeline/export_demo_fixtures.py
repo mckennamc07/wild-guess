@@ -22,7 +22,7 @@ OUT = ROOT / "web" / "src" / "demo" / "fixtures.json"
 
 def main() -> None:
     db = get_client()
-    parks = db.table("parks").select("id, name, short_name, nps_code, states").order("name").execute().data
+    parks = db.table("parks").select("id, name, short_name, nps_code, states, photo").order("name").execute().data
     by_name = {p["name"]: p for p in parks}
 
     week = json.loads(WEEK.read_text())

@@ -5,7 +5,7 @@ import type { GameData, Park, ProfileSection, Puzzle, SectionName } from './type
 // of parks and profile_sections, and select('*') would be refused.
 const PUZZLE_COLUMNS =
   'id, puzzle_date, park_id, difficulty, answer_format, clue_1, clue_2, clue_3, wrong_answers, accepted_answers'
-const PARK_COLUMNS = 'id, name, short_name, nps_code, states'
+const PARK_COLUMNS = 'id, name, short_name, nps_code, states, photo'
 const PROFILE_COLUMNS = 'id, park_id, section, body, sources, details, generated_at'
 
 function client() {

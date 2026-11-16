@@ -313,6 +313,30 @@ a:focus-visible {
   font-size: 0.9rem;
 }
 
+.park-photo {
+  margin: 14px 0 0;
+}
+
+.park-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* reserve space so the page doesn't jump while it loads */
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  border: 3px solid var(--earth);
+  background: #e7dcc2;
+}
+
+.park-photo figcaption {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.park-photo .credit {
+  font-style: italic;
+}
+
 details > summary {
   cursor: pointer;
   font-weight: 600;

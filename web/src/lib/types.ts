@@ -17,12 +17,21 @@ export interface Puzzle {
   accepted_answers: string[] // lowercase
 }
 
+export interface ParkPhoto {
+  url: string
+  title: string
+  alt: string // description for screen readers
+  caption: string
+  credit: string // e.g. "NPS / Jacob W. Frank"
+}
+
 export interface Park {
   id: number
   name: string // "Acadia National Park"
   short_name: string // "Acadia"
   nps_code: string
   states: string[]
+  photo: ParkPhoto | null // featured NPS photo, shown on the reveal
 }
 
 export type Confidence = 'strong' | 'limited' | 'thin'
