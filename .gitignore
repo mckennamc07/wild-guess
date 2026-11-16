@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local review output from enrich_profiles.py and playtest ratings (regenerated on each run)
+drafts/profiles_*
+drafts/playtest_*

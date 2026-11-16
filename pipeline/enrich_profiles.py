@@ -34,7 +34,7 @@ import httpx
 from pydantic import BaseModel
 
 from db import get_client
-from exa_research import fetch_page_texts, research_people, search_sources
+from exa_research import PeopleResearch, fetch_page_texts, research_people, search_sources
 from generate_puzzles import DEFAULT_MODEL, PRICES
 from profile_checks import (
     INFO_FIELDS,
@@ -187,8 +187,10 @@ def people_details(nations: list[dict], content: dict, titles: dict[str, str], l
     }
 
 
-def build_people_section(park: dict) -> dict:
-    research = research_people(park["name"], park["states"])
+def build_people_section(park: dict, research: PeopleResearch | None = None) -> dict:
+    """research: pass earlier Exa output (e.g. from a profiles_raw_*.json file)
+    to re-check and save it without searching again."""
+    research = research or research_people(park["name"], park["states"])
     content, grounding = research.content, research.grounding
     urls = list(dict.fromkeys(c["url"] for g in grounding for c in g["citations"]))
     loads = check_links(urls)
