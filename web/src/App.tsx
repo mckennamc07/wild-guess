@@ -3,6 +3,7 @@ import { Game } from './components/Game'
 import { HowItWorks } from './components/HowItWorks'
 import { loadGame } from './lib/api'
 import { easternToday } from './lib/dates'
+import { clearProgress } from './lib/progress'
 import type { GameData } from './lib/types'
 
 // What the page is showing. A "union type": exactly one of these at a time,
@@ -54,7 +55,22 @@ export default function App() {
         )}
         {status.kind === 'ready' && (
           <>
-            {status.demo && <p className="demo-banner">Demo mode: local draft data, not the live site.</p>}
+            {/* import.meta.env.DEV is replaced with `false` in the production build,
+                so the bundler deletes this whole block from the live site. */}
+            {import.meta.env.DEV && status.demo && (
+              <p className="demo-banner">
+                Demo mode: local draft data, not the live site.{' '}
+                <button
+                  className="link-button"
+                  onClick={() => {
+                    clearProgress(`demo:${status.date}`)
+                    window.location.reload()
+                  }}
+                >
+                  Reset this puzzle
+                </button>
+              </p>
+            )}
             <Game data={status.data} date={status.date} storagePrefix={status.demo ? 'demo:' : ''} />
           </>
         )}

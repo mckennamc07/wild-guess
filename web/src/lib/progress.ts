@@ -15,6 +15,14 @@ export function loadProgress(date: string): GameState {
   }
 }
 
+export function clearProgress(date: string): void {
+  try {
+    localStorage.removeItem(key(date))
+  } catch {
+    // Storage unavailable: nothing saved, nothing to clear.
+  }
+}
+
 export function saveProgress(date: string, state: GameState): void {
   try {
     localStorage.setItem(key(date), JSON.stringify(state))
