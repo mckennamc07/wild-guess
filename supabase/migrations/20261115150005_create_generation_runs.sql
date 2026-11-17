@@ -1,5 +1,8 @@
 -- generation_runs: one row per weekly batch job.
 -- Your real cost record, and where failures become visible.
+--
+-- Why it matters: the weekly job runs unattended in GitHub Actions, so this
+-- table is how you know it ran, what it cost, and why it failed.
 
 create table generation_runs (
   id             integer generated always as identity primary key,

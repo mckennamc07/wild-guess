@@ -6,7 +6,13 @@
    Contrast (WCAG AA: text 4.5:1, borders/focus rings 3:1):
      black text on page     17.5   |  gray outline on page    3.6
      white text on black    21.0   |  (about #858585 is the lightest gray
-                                       that still passes; this leaves a margin) */
+                                       that still passes; this leaves a margin)
+
+   Key decisions: one plain stylesheet (no CSS framework) keeps the site
+   small and every rule readable; class names match the components.
+
+   Why it matters: the whole look of the site, and the WCAG AA contrast
+   the project commits to, live in this file. */
 
 :root {
   --bg: #e4ede4; /* the page (boxes are clear, so they show it too) */

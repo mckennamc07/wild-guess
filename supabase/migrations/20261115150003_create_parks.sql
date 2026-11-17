@@ -1,4 +1,9 @@
 -- parks: one row per national park (63). Rarely changes after setup.
+--
+-- Why it matters: every puzzle and profile points at a park, and the
+-- columns here (fame_score, last_shown_date, times_shown, banned_words) are
+-- what select_parks.py and the clue validator run on.
+-- (region was later dropped in 20261115204144_drop_parks_region.sql.)
 
 create table parks (
   -- "generated always as identity" = Postgres hands out 1, 2, 3... automatically.

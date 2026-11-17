@@ -1,6 +1,10 @@
 -- Enums: columns that may only hold one of a fixed list of values.
 -- Postgres rejects anything else, so a typo like 'aproved' can never be saved.
 -- They're created first because the tables below use them as column types.
+--
+-- Why it matters: statuses decide what's public (approved vs draft), and the
+-- answer formats tie fame score to how a puzzle is played. Enums make the
+-- database enforce both.
 
 -- The four answer formats, one per fame level (4 = best known = hardest).
 create type answer_format as enum (

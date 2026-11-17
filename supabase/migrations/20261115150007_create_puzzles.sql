@@ -1,5 +1,9 @@
 -- puzzles: one row per day. Clues and answers only; the post-guess
 -- content lives in profile_sections.
+--
+-- Why it matters: this is the table the game reads each day. Puzzles
+-- auto-publish, so the check constraints below are a last line of defense
+-- after puzzle_checks.py: a malformed puzzle can't even be saved.
 
 create table puzzles (
   id                integer generated always as identity primary key,

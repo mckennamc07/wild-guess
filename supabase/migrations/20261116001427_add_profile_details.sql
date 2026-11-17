@@ -5,6 +5,9 @@
 --    "displacement": "...", "documentation_note": "..."}
 -- Null for sections that are plain text (fun_facts, formation). `body` stays
 -- the readable version of the same content.
+--
+-- Why it matters: it lets PeopleHistory.tsx show each nation, its sources
+-- and its confidence separately, instead of one block of text.
 
 alter table profile_sections
   add column details jsonb

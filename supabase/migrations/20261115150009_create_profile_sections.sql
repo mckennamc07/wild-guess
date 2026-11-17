@@ -1,6 +1,9 @@
 -- profile_sections: the post-guess content. One row per park, per section,
 -- per version. New content (e.g. from Exa) is a new row beside the old one;
 -- the site shows the newest approved row for each section.
+--
+-- Why it matters: keeping every version (instead of overwriting) means
+-- research can be redone and compared, and nothing is shown until approved.
 
 create table profile_sections (
   id            integer generated always as identity primary key,

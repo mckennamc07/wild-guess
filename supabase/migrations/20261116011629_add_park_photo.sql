@@ -2,6 +2,9 @@
 --   {"url", "title", "alt", "caption", "credit"}
 -- Stored here (filled by pipeline/seed_parks.py) so the website never needs
 -- the NPS API key, which must stay out of the browser.
+--
+-- Why it matters: the reveal shows the park, not just its name, and the
+-- photo's alt text keeps it accessible.
 
 alter table parks
   add column photo jsonb

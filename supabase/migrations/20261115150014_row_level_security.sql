@@ -9,6 +9,10 @@
 -- Once RLS is on, a table with no policies is invisible to anon. Policies
 -- only ever ADD access. The website only reads, so there are no
 -- insert/update/delete policies: the public key can't write anything.
+--
+-- Why it matters: this is the site's real security. Future puzzles, draft
+-- history, costs and review notes stay private even though the public key
+-- is visible to anyone, because the database enforces it, not the frontend.
 
 alter table parks              enable row level security;
 alter table puzzles            enable row level security;

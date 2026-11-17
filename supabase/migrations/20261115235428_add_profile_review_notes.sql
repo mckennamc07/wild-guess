@@ -4,6 +4,9 @@
 --    {"check": "low_confidence", "detail": "field nations: Exa confidence low"}]
 -- An empty list means every automated check passed. Every row still starts
 -- as 'draft' and needs your approval; the notes tell you where to look.
+--
+-- Why it matters: it connects the automated checks (profile_checks.py) to
+-- the human review (review_profiles.py) while keeping the notes off the site.
 
 alter table profile_sections
   add column review_notes jsonb not null default '[]'
