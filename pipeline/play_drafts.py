@@ -14,6 +14,16 @@ drafts/playtest_<time>.json for the model-test write-up.
 
 Typed answers use a simple stand-in for the real game's checker: it ignores
 case, accents, punctuation and "national park", and allows small typos.
+
+Key decisions:
+- Drafts are shuffled and labeled Set A/B/C, with the model hidden until the
+  end, so the model comparison is a blind test.
+- Python's built-in difflib is used for typo tolerance: good enough for a
+  playtest, and no extra dependency.
+
+Why it matters: the writing model (Sonnet) was chosen by playing its
+draft week here, and it's how a week can be checked by a human before it
+goes live.
 """
 
 import argparse

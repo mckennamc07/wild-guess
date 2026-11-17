@@ -20,6 +20,22 @@ Steps:
    the list of problems; a second failure stops the run.
 5. Save: the puzzles (status 'approved', so they auto-publish), each park's
    last_shown_date/times_shown, the calibration notes, and the run's cost.
+
+Key decisions:
+- One Claude call for the whole week, so Claude sees all seven parks at
+  once and can avoid reusing a park as a wrong answer within the week.
+- Structured output (Pydantic WeekDraft) instead of parsing free text: the
+  reply always has the fields code expects.
+- Claude checks its own work, but code checks again (puzzle_checks.py). Only
+  one retry, so a bad week fails loudly instead of burning money.
+- Streaming with a heartbeat and a 3-minute read timeout: long replies don't
+  hit HTTP timeouts, and a stalled call is obvious.
+- Each run is a generation_runs row (cost, status, error), and the date
+  check runs before any Claude call so a re-run can't double-book a week.
+- --dry-run and --from-draft let a week be playtested before it's saved.
+
+Why it matters: this is the weekly job that GitHub Actions runs. Every
+puzzle players see is written and validated here.
 """
 
 import argparse

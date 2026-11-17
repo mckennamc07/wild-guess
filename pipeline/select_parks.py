@@ -21,6 +21,17 @@ The rules:
 
 Everything random comes from one seeded generator, so the same parks, start
 date and seed always give the same week.
+
+Key decisions:
+- No AI here: which park appears when is a rule, and rules belong in code
+  that can be tested.
+- A seeded random.Random (not the global random) makes every week
+  reproducible, which the model test and --from-draft rely on.
+- The 14-day rule is soft, so the scheduler can never get stuck.
+- The Park and Pick dataclasses are frozen (read-only), and the database is
+  only loaded in load_parks(), so tests run without Supabase.
+
+Why it matters: it decides the game's variety and difficulty week to week.
 """
 
 import argparse

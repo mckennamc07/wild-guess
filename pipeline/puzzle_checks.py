@@ -4,6 +4,22 @@ Claude is asked to follow these rules and to check its own work, but code
 checks again before anything is saved. Each function returns a list of
 problems in plain English (empty = passed), which can be sent back to
 Claude on the retry.
+
+Key decisions:
+- Matching is whole-word, case- and accent-insensitive: "Zion" is caught in
+  "Zion's", but "Arches" isn't flagged in "Archers".
+- Banned words and the past-clue overlap check apply to clues 1 and 2 only;
+  clue 3 is meant to be easy.
+- "Fresh clues for returning parks" is measured as shared content words
+  (stopwords ignored), with a 50% limit.
+- Wrong answers must be exact park names from the list, and none may repeat
+  across the week.
+- Problems are plain-English strings, so the same list is printed for a
+  human and sent to Claude on the retry.
+
+Why it matters: puzzles auto-publish, so these rules are the only thing
+between Claude's draft and players. They encode the key clue rules in
+CLAUDE.md as code.
 """
 
 import re

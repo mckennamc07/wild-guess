@@ -7,6 +7,18 @@ Two kinds of research, matching how much each section needs checking:
 - research_people(): an Exa Deep Search that returns structured fields
   (nations, displacement...) with citations and a confidence level per
   field. Used for "who lived here first".
+fetch_page_texts() downloads cited pages so code can check names against them.
+
+Key decisions:
+- Standard searches are limited to .gov, .edu and the Smithsonian, and AI
+  encyclopedias are excluded: citing them would be citing a model's memory.
+- Deep Search gets an output schema (PEOPLE_SCHEMA), so results come back as
+  fields the checks and the frontend can use, not free text.
+- The people instructions ask for nations' own names, present-day framing,
+  and empty fields over guesses.
+
+Why it matters: the project rule is "never write history from model
+memory". This module is where every source for the park profiles comes from.
 """
 
 from dataclasses import dataclass

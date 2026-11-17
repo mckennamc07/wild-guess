@@ -7,6 +7,17 @@ Usage (from the repo root):
 Step 1 writes pipeline/data/fame_scores.json. Nothing reaches the database
 until you've reviewed (and edited) that file and run --apply. It refuses to
 overwrite an existing draft, so a stray re-run can't wipe your edits.
+
+Key decisions:
+- Opus scores all parks in one call, so scores are judged relative to each
+  other instead of one park at a time.
+- Structured output with fame_score as Literal[1, 2, 3, 4]: the API can't
+  return a score outside the range.
+- A two-step draft-then-apply flow, so the scores are reviewed (and edited)
+  by a human before they change how the game plays.
+
+Why it matters: fame score is the only thing that sets difficulty and
+answer format, and banned words feed the clue validator. Both come from here.
 """
 
 import argparse

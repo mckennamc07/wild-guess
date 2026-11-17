@@ -21,6 +21,18 @@ How each section is made:
 Every row is saved with status 'draft' (never shown publicly) and
 review_notes listing anything the checks flagged. A review file in drafts/
 shows each section with its notes, for reading before you approve.
+
+Key decisions:
+- Claude writes only from pages Exa returned, and each claim must carry an
+  exact quote. Code, not Claude, decides whether the quote is really there.
+- History uses Deep Search's own structured output and citations rather
+  than Claude rewriting it, so every sentence stays tied to a source.
+- Nothing auto-publishes: profiles are drafts until approved in
+  review_profiles.py.
+- Raw Exa output is saved to drafts/ so a reviewer can see what came back.
+
+Why it matters: this produces the "learn about the park" half of the game,
+including the Indigenous history, which has the highest bar for accuracy.
 """
 
 import argparse

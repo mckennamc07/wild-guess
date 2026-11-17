@@ -10,6 +10,14 @@ Approving sets status to 'approved' and stamps reviewed_at. The website
 shows the newest approved row for each park and section, so approving a
 new version replaces the old one on the site; older rows stay in the
 table for comparison.
+
+Key decisions:
+- A terminal tool instead of an admin web page: no login system to build or
+  secure, and it uses the pipeline's secret key, which stays off the website.
+- Approval is reversible (--unapprove), and old versions are never deleted.
+
+Why it matters: this is the human review step. Profile content, especially
+Indigenous history, only reaches players after passing through here.
 """
 
 import argparse

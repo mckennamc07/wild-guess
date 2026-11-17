@@ -8,6 +8,14 @@ draft puzzle week from drafts/, and the current *draft* profile sections.
 The file is git-ignored: draft history hasn't been reviewed, and the repo
 is public. It's only loaded by `npm run dev` with ?demo=YYYY-MM-DD, never
 by the production build.
+
+Key decisions:
+- Puzzles are reshaped to match the real puzzles table's columns, so the
+  frontend's demo path uses the same types as the live path.
+- Only the parks columns the public key may read are exported.
+
+Why it matters: it lets the full game and reveal be tested in the browser
+before any puzzle is live or any profile is approved.
 """
 
 import json

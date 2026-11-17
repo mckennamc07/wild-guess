@@ -1,4 +1,20 @@
-"""Client for the National Park Service API (developer.nps.gov)."""
+"""Client for the National Park Service API (developer.nps.gov).
+
+What: two calls. fetch_all_parks() returns every NPS unit for seeding the
+parks table; fetch_fact_sheet() turns one park's description, activities,
+things to do and places into a plain-text sheet for the puzzle writer.
+
+Key decisions:
+- The API key goes in a header, not the URL, so it can't leak into an error
+  message that prints the URL.
+- Fact sheets are capped (MAX_THINGS_TO_DO, MAX_PLACES) and skip empty
+  places, so a huge park like Yellowstone stays a few thousand tokens.
+- Filtering is done in Python because the API's parkCode filter breaks on
+  URL-encoded commas.
+
+Why it matters: the puzzle instructions say clues may only use facts from
+this sheet, so it's the factual ground truth for every clue Claude writes.
+"""
 
 import os
 

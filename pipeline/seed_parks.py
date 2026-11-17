@@ -8,6 +8,17 @@ Safe to run more than once: it upserts on nps_code, so a second run updates
 the same 63 rows instead of adding duplicates. It only sends name,
 short_name, nps_code, states and photo, so it never overwrites fame scores or
 banned words added later.
+
+Key decisions:
+- The 63 park codes are listed by hand: the API's designation field can't
+  reliably tell national parks apart from other NPS units.
+- State codes are expanded to full names, since a clue would leak
+  "California", not "CA".
+- The featured photo is copied into the database, so the website never
+  needs the NPS API key.
+
+Why it matters: the parks table is the foundation every other table and
+script builds on.
 """
 
 import argparse

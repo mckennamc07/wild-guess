@@ -2,6 +2,16 @@
 
 Uses the service role key, which bypasses Row Level Security. It must only
 ever run locally or in GitHub Actions, never in the website.
+
+Key decisions:
+- One shared get_client() so every script connects the same way and the
+  secret key is read in exactly one place.
+- Keys come from environment variables (.env locally, GitHub Secrets in
+  Actions), never from code. Errors name a missing variable, never its value.
+
+Why it matters: every pipeline script that reads or writes the database
+goes through here, and it keeps the most powerful key in the project
+contained to the pipeline.
 """
 
 import os

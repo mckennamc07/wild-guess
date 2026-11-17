@@ -6,6 +6,21 @@ reviewer at what needs a closer look, and drop claims that can't be backed
 by their source.
 
 A review note is a dict: {"check": "<short id>", "detail": "<plain English>"}.
+
+Key decisions:
+- Quote matching is exact after normalizing (accents, curly quotes, dashes,
+  spaces) and needs at least 6 words, so a claim can't be "backed" by a
+  two-word phrase that appears anywhere.
+- Sources are ranked by domain: .gov, .edu, tribal (.nsn.us) and the
+  Smithsonian are high; Wikipedia and mirror sites are low.
+- A nation's name must appear on the pages cited for it. Generic words like
+  "tribe" or "nation" don't count toward a match.
+- Confidence is summarized as strong / limited / thin, which the site uses
+  to tell players when something rests on limited sources.
+- Pure functions with no network calls, so they're fully unit tested.
+
+Why it matters: these checks are what make "never write history from model
+memory" enforceable, and they tell the human reviewer where to look.
 """
 
 import re
