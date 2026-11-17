@@ -1,4 +1,12 @@
-"""Tests for the terminal playtest tool's helpers."""
+"""Tests for the terminal playtest tool's helpers.
+
+Covers answer matching (case, punctuation, "national park" filler, typos),
+the first-letter hint (including the Hawaiian ʻokina), and which clues are
+shown after a solve. Uses pytest's capsys fixture to check printed output.
+
+Why it matters: playtest scores picked the writing model, so a broken
+checker would have skewed that decision.
+"""
 
 import pytest
 

@@ -1,4 +1,11 @@
-"""Tests for seed_parks.py's NPS-to-row conversion (no network or database)."""
+"""Tests for seed_parks.py's NPS-to-row conversion (no network or database).
+
+Covers picking the park photo: first image, alt text with a fallback to the
+title, and no photo when NPS has none.
+
+Why it matters: the photo shows on the reveal, and its alt text is what
+screen-reader users get.
+"""
 
 from seed_parks import park_photo
 

@@ -1,4 +1,12 @@
-"""Tests for puzzle_checks.py: each rule should catch a bad draft and pass a good one."""
+"""Tests for puzzle_checks.py: each rule should catch a bad draft and pass a good one.
+
+Pattern: start from one known-good puzzle (good_puzzle), break one thing,
+and check that the matching problem is reported. pytest.mark.parametrize
+runs one test over several bad inputs.
+
+Why it matters: puzzles auto-publish, so these tests protect the clue rules
+(no park or state names, banned words, fresh clues, valid wrong answers).
+"""
 
 import pytest
 

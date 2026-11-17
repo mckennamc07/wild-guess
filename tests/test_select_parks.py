@@ -3,6 +3,13 @@
 None of these touch Supabase: they build fake parks in memory.
 Randomness is handled with seeds; a property that must hold "always" is
 checked across many seeds.
+
+Covers reproducibility, the 2-2-2-1 difficulty mix, no predictable
+4-3-2-1 runs, the soft 14-day rule and its exact boundary, fallbacks to the
+nearest level, and weighting toward parks shown less often.
+
+Why it matters: these are the rules that keep the daily game varied and
+unpredictable, and they're easy to break without noticing.
 """
 
 from collections import Counter

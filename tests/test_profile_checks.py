@@ -1,4 +1,13 @@
-"""Tests for profile_checks.py."""
+"""Tests for profile_checks.py.
+
+Covers quote matching (exact, tolerant of case and dashes, minimum length),
+source quality and confidence levels, nation-name matching on cited pages,
+"vanished people" framing, and paragraph splitting. Page texts are fake
+strings, so no network calls are made.
+
+Why it matters: these checks decide which history claims are dropped and
+which nations are listed, so each rule is pinned down by a test.
+"""
 
 from profile_checks import (
     check_claims,
