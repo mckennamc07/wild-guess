@@ -1,5 +1,11 @@
-// The green footer: ways to support the parks, then the how-it-works note
+// The black footer band: ways to support the parks, then the how-it-works note
 // and the not-affiliated disclaimer.
+//
+// Key decisions: the links are a data array mapped to list items, so adding
+// one is a one-line change; the disclaimer says plainly that content is
+// written with AI and that the site isn't the National Park Service.
+//
+// Why it matters: honesty about AI use and independence from NPS, on every page.
 
 const SUPPORT_LINKS = [
   {

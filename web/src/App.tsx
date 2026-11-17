@@ -1,3 +1,16 @@
+// The top-level page: header, today's game (or a loading / error / empty
+// message), and footer.
+//
+// Key decisions:
+// - Loads the puzzle once on mount with useEffect, and models the page as
+//   one Status union, so the page can't be "loading" and "error" at once.
+// - "Today" is Eastern time (easternToday), not the player's local date.
+// - Demo mode is gated on import.meta.env.DEV and loaded with a dynamic
+//   import(), so the demo code and its draft data never ship to the live site.
+//
+// Why it matters: it's the entry point for every visit, and the place that
+// keeps unreviewed draft content off the public site.
+
 import { useEffect, useState } from 'react'
 import { Game } from './components/Game'
 import { SiteFooter } from './components/SiteFooter'
@@ -40,9 +53,9 @@ export default function App() {
 
   return (
     <>
-      {/* Header and footer sit outside the content column so their green
-          background spans the full screen width; .band-inner keeps their
-          text centered at a readable width. */}
+      {/* Header and footer sit outside the content column so the footer's
+          black background spans the full screen width; .band-inner keeps
+          their text centered at a readable width. */}
       <header className="site-header">
         <div className="band-inner">
           <h1>Wild Guess</h1>

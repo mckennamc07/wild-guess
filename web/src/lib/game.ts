@@ -1,6 +1,14 @@
 // The game rules, kept free of React so they're easy to test.
 // The whole game state is just the list of guesses and when (if) it was solved;
 // everything else is worked out from those two.
+//
+// Key decisions: storing the fewest facts possible (and deriving clues shown,
+// points and "finished") means the saved state can't contradict itself;
+// applyGuess returns a new object instead of changing the old one, which is
+// how React expects state to be updated.
+//
+// Why it matters: these are the scoring and clue-unlock rules every player
+// plays by, tested in game.test.ts.
 
 export interface GameState {
   guesses: string[] // in order; '' means "skipped to the next clue"

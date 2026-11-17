@@ -1,6 +1,9 @@
 // "Today" for Wild Guess is the date in U.S. Eastern time, wherever the
 // player is. Intl handles daylight saving time, so there's no hard-coded
 // UTC offset (that was v1's bug: puzzles went live at 11 pm in winter).
+//
+// Why it matters: everyone gets the same puzzle on the same day, and it
+// changes at midnight Eastern all year round.
 
 export function easternToday(now: Date = new Date()): string {
   // 'en-CA' formats dates as YYYY-MM-DD, the same format as puzzle_date.

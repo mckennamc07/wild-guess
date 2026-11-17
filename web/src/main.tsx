@@ -1,3 +1,9 @@
+// The browser entry point: index.html loads this file, which loads the
+// global styles and mounts <App /> into the page.
+//
+// Why it matters: it's the first code that runs on every visit. Everything
+// else is imported from here.
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'

@@ -1,6 +1,13 @@
 // The shapes of the rows the website reads from Supabase.
 // They mirror the tables in supabase/migrations/, limited to the columns
 // the public key is allowed to read.
+//
+// Key decision: string-literal unions (like AnswerFormat) mirror the
+// Postgres enums, so TypeScript flags a typo or an unhandled format at
+// build time.
+//
+// Why it matters: every component and lib file shares these shapes, so a
+// database change shows up as a type error instead of a broken page.
 
 export type AnswerFormat = 'type_in' | 'first_letter_count' | 'choice_confusable' | 'choice_easy'
 

@@ -1,3 +1,18 @@
+// The answer checker and hint helpers: canonical() cleans up a name,
+// isCorrectGuess() decides whether a typed guess is right, letterHint() builds
+// "B _ _   _ _ _ _", and seededShuffle() orders the multiple choices.
+//
+// Key decisions:
+// - Fuzzy matching by edit distance (Levenshtein), allowing 1 typo for short
+//   names and 2 for longer ones.
+// - A near miss only counts if it's closer to this park than to every other
+//   park, so "glacier" isn't accepted for Glacier Bay.
+// - The shuffle is seeded by the date, so everyone sees the same order.
+// - Pure functions with no React, so they're unit tested (answers.test.ts).
+//
+// Why it matters: a checker that's too strict feels unfair, and one that's
+// too loose gives away points. This is the "real fuzzy answer checker".
+
 import type { Park, Puzzle } from './types'
 
 // Words that don't help identify a park: "Rocky Mountain National Park" and

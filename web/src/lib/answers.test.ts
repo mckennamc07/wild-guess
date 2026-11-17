@@ -1,3 +1,10 @@
+// Tests for answers.ts (run with `npm test`, using Vitest).
+// Covers name cleanup, edit distance, accepting typos and nicknames while
+// rejecting a different similar park, the letter hint, and that the seeded
+// shuffle is repeatable.
+//
+// Why it matters: the answer checker decides every typed guess.
+
 import { describe, expect, it } from 'vitest'
 import { canonical, editDistance, isCorrectGuess, letterHint, seededShuffle } from './answers'
 import type { Park, Puzzle } from './types'

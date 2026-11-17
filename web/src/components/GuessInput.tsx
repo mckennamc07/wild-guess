@@ -1,3 +1,19 @@
+// How the player answers. The puzzle's answer format picks the control:
+// a text box (type_in, first_letter_count, with a letter hint for the
+// latter) or four multiple-choice buttons (choice_confusable, choice_easy).
+//
+// Key decisions:
+// - Typed guesses use the fuzzy checker in lib/answers.ts, so small typos and
+//   "national park" are forgiven.
+// - Choices are shuffled with a seed (the puzzle date), so the order is the
+//   same for everyone and doesn't change on refresh. useMemo avoids
+//   reshuffling on every render.
+// - A skip is recorded as an empty guess, so skipping and guessing wrong
+//   both reveal the next clue the same way.
+//
+// Why it matters: difficulty in Wild Guess comes from the answer format,
+// and this is where the four formats become different experiences.
+
 import { useMemo, useState, type FormEvent } from 'react'
 import { isCorrectGuess, letterHint, seededShuffle } from '../lib/answers'
 import type { GameData } from '../lib/types'

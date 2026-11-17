@@ -6,6 +6,13 @@ import type { GameData, Park, ProfileSection, Puzzle } from './types'
 // the reveal can be tried before a puzzle is live and before sections are
 // approved. Draft sections are included here on purpose; they never reach
 // the live site, because App only calls this when import.meta.env.DEV.
+//
+// Key decisions: reuses newestPerSection() from api.ts, so demo and live
+// pick sections the same way; import.meta.glob lets the app still build
+// when the git-ignored fixtures file doesn't exist.
+//
+// Why it matters: the game and reveal can be tested end to end before any
+// content is live.
 
 interface Fixtures {
   parks: Park[]

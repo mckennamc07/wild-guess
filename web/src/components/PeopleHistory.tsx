@@ -1,3 +1,17 @@
+// The "Who lived here first" tab: each nation as an expandable entry, then
+// displacement when the park was created, then a note on how well
+// documented it is, and all sources.
+//
+// Key decisions:
+// - Built from the structured `details` column, not the plain `body`, so
+//   each nation can be its own <details> element.
+// - Anything less than strongly sourced says "Based on limited sources",
+//   instead of hiding uncertainty from the player.
+// - Each nation shows its own sources, with repeats removed by URL.
+//
+// Why it matters: the project commits to telling Indigenous and displacement
+// history accurately and with sources. This is where players see it.
+
 import Markdown from 'react-markdown'
 import type { Nation, PeopleDetails, Source } from '../lib/types'
 import { Sources } from './Sources'

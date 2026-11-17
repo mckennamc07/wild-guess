@@ -1,3 +1,18 @@
+// The after-game screen: the result, the park's name and photo, all three
+// clues (marking ones you didn't need), and tabs for Fun fact, How it
+// formed, and Who lived here first.
+//
+// Key decisions:
+// - Tabs use the ARIA tab roles (tablist, tab, tabpanel), so keyboard and
+//   screen-reader users can tell which section is open.
+// - Section text is Markdown rendered with react-markdown, which doesn't run
+//   raw HTML, so stored text can't inject markup into the page.
+// - A section with no approved row shows "coming soon" instead of anything
+//   unreviewed.
+//
+// Why it matters: this is where players learn about the park, the second
+// half of what Wild Guess is for.
+
 import { useState } from 'react'
 import Markdown from 'react-markdown'
 import type { GameState } from '../lib/game'

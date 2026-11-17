@@ -1,3 +1,15 @@
+// Reads today's game from Supabase: the puzzle, all parks (for answer
+// checking), and the park's newest approved profile sections.
+//
+// Key decisions:
+// - Read-only, with the public key. Row Level Security in the database
+//   decides what's visible (no future puzzles, no draft sections), so the
+//   site can't leak them even if this code had a bug.
+// - Parks and profile are fetched in parallel with Promise.all.
+// - The site never calls an AI; it only reads rows the pipeline saved.
+//
+// Why it matters: it's the only place the website talks to the database.
+
 import { supabase } from './supabase'
 import type { GameData, Park, ProfileSection, Puzzle, SectionName } from './types'
 

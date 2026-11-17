@@ -1,3 +1,12 @@
+// A collapsible list of source links for a profile section, plus the
+// "Researched with Exa" credit.
+//
+// Key decisions: links open in a new tab with rel="noreferrer" (the
+// opened page can't control this one), and an empty list renders nothing.
+//
+// Why it matters: every profile claim comes from a source, and showing
+// them lets players check it themselves.
+
 import type { Source } from '../lib/types'
 
 export function Sources({ sources, label = 'Sources' }: { sources: Source[]; label?: string }) {

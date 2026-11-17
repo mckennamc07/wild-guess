@@ -1,3 +1,16 @@
+// The play screen: the three clue boxes, wrong guesses so far, and the guess
+// input. Switches to <Reveal /> once the game is finished.
+//
+// Key decisions:
+// - The rules live in lib/game.ts; this component only stores the state and
+//   renders it. State is loaded from and saved to localStorage, so a refresh
+//   keeps your progress.
+// - Locked clues aren't put on the page at all, so they can't be read with
+//   the browser's inspect tool.
+// - aria-live="polite" makes screen readers announce new clues.
+//
+// Why it matters: this is the game itself.
+
 import { useEffect, useState } from 'react'
 import { applyGuess, cluesShown, isFinished } from '../lib/game'
 import { formatPuzzleDate } from '../lib/dates'

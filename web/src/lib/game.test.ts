@@ -1,3 +1,9 @@
+// Tests for game.ts (run with `npm test`, using Vitest).
+// Covers scoring (3/2/1/0), revealing a clue after each miss or skip, the
+// game ending after a solve or three misses, and ignoring late guesses.
+//
+// Why it matters: these are the rules every player plays by.
+
 import { describe, expect, it } from 'vitest'
 import { NEW_GAME, applyGuess, cluesShown, isFinished, points } from './game'
 
